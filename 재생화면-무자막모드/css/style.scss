@@ -1,0 +1,117 @@
+// common
+*{
+  margin: 0;
+  padding: 0;
+}
+// common
+*{
+  margin: 0;
+  padding: 0;
+}
+//variable
+$color-bk: black;
+$color-c4: #c4c4c4;
+$color-dp: #8068AD;
+$color-pp: #C8B5C8;
+$color-yel: #EDEBB2;
+$border-bk: 1px solid black;
+$border-red: 1px solid red;
+$center: center;
+$per100: 100%;
+//class-set
+@mixin flex-align-justify($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin border($px, $color) {
+  border: $px solid $color;
+}
+//style
+#root{
+  width: 100vw;
+  height: 100vh;
+  .con{
+    width: inherit;
+    height: inherit;
+    header{
+      width: inherit;
+      height: 30vh;
+      // @include border(1px, red);
+      >div{
+        width: inherit;
+        height: 10%;
+        @include border(1px, red);
+      }
+      // 재생화면
+      >div:nth-child(2){
+        width: inherit;
+        height: 80%;
+        background-color: $color-c4;
+        // @include border(1px, red);
+        >div{
+          width: inherit;
+          height: $per100;
+          @include flex-align-justify($center, space-around);
+          >div{
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            text-align: $center;
+            @include flex-align-justify($center, $center);
+            border-radius: $per100;
+            >div{
+              text-align: $center;
+            }
+          }
+        }  
+      }
+      >div:nth-child(3){
+        @include flex-align-justify(flex-end, $center);
+        >div{
+          width: inherit;
+          height: 50%;
+          background-color: $color-pp;
+        }
+      }
+    }
+    // 무자막 모드 con
+    main{
+      width: inherit;
+      height: 50vh;
+      @include border(1px, green);
+      @include flex-align-justify($center, space-between);
+      flex-direction: column;
+      >div{
+        @include border(1px, green);
+      }
+      // 자막 공간
+      >div:nth-child(1){
+        width: inherit;
+        height: 70%;
+      }
+      // 기능
+      >div:nth-child(2){
+        width: $per100;
+        height: 30%;
+        @include flex-align-justify($center, space-around);        
+        >div{
+          width: 60px;
+          height: 60px;
+          @include border(1px, $color-dp);
+          @include flex-align-justify($center, $center);
+          flex-wrap: wrap;
+          border-radius: $per100;
+          background-color: $color-dp;
+          >div{
+            text-align: center;
+          }
+        }
+      }
+    }
+    // footer{
+
+    // }
+  }
+}
+
