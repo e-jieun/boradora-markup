@@ -73,6 +73,7 @@
 }
 
 #root .con header > div:nth-child(2) > div > div > div {
+  font-size: 0.8em;
   width: inherit;
   text-align: center;
 }
