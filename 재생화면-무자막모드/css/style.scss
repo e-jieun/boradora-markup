@@ -14,6 +14,7 @@ $color-c4: #c4c4c4;
 $color-dp: #8068AD;
 $color-pp: #C8B5C8;
 $color-yel: #EDEBB2;
+$color-cr: #FFFEF9;
 $border-bk: 1px solid black;
 $border-red: 1px solid red;
 $center: center;
@@ -41,7 +42,7 @@ $per100: 100%;
       >div{
         width: inherit;
         height: 10%;
-        @include border(1px, red);
+        // @include border(1px, red);
       }
       // 재생화면
       >div:nth-child(2){
@@ -56,11 +57,18 @@ $per100: 100%;
           >div{
             width: 60px;
             height: 60px;
-            background-color: #fff;
+            background-color: $color-cr;
             text-align: $center;
             @include flex-align-justify($center, $center);
             border-radius: $per100;
+            color: $color-pp;
+            &:active{
+              background-color: $color-pp;
+              color: $color-cr;
+              transition: 1s;
+            }
             >div{
+              width: inherit;
               text-align: $center;
             }
           }
@@ -72,48 +80,97 @@ $per100: 100%;
           width: inherit;
           height: 50%;
           background-color: $color-pp;
+          @include flex-align-justify($center, flex-start);
+          >div{
+            width: 70%;
+            height: 70%;
+            background-color: $color-yel;
+            @include border(1px, $color-pp);
+            &:hover{
+              background-color: $color-cr;
+            }
+          }
         }
       }
     }
     // 무자막 모드 con
     main{
       width: inherit;
-      height: 50vh;
-      @include border(1px, green);
+      height: 60vh;
+      // @include border(1px, green);
       @include flex-align-justify($center, space-between);
       flex-direction: column;
       >div{
-        @include border(1px, green);
+        // @include border(1px, green);
       }
       // 자막 공간
       >div:nth-child(1){
         width: inherit;
         height: 70%;
       }
-      // 기능
+      // 기능 아이콘
       >div:nth-child(2){
         width: $per100;
         height: 30%;
         @include flex-align-justify($center, space-around);        
         >div{
-          width: 60px;
-          height: 60px;
-          @include border(1px, $color-dp);
+          width: 70px;
+          height: 70px;
+          // @include border(1px, $color-dp);
           @include flex-align-justify($center, $center);
-          flex-wrap: wrap;
           border-radius: $per100;
           background-color: $color-dp;
+          // !텍스트를 부모 태그에서 값을 주면 가상 클래스 적용해도 동떨어지지 않고 부모 태그 내 어느 영역에 움직임을 주더라도 적용이 된다
+          // !가상 클래스 효과는 부모 태그에 부여하는 것이 좋다
+          color: $color-cr;
+          &:active{
+            width: 65px;
+            height: 65px;
+            background-color: $color-cr;
+            @include border(3px, $color-dp);
+            color: $color-dp;
+          }
           >div{
             text-align: center;
+            // color: $color-cr;
+          }
+        }
+        >div:nth-child(4){
+          @include flex-align-justify($center, $center);
+          >div{
+            width: 70%;
+            height: 50%;
           }
         }
       }
     }
-    // *이 위의 header, main의 레이아웃 완성 항목을 클릭할 떄의 효과를 주기 - &:active, &:hover
-    // *ul, li를 활용해서 구성하기
-    // footer{
-
-    // }
+    footer{
+      width: inherit;
+      height: 10vh;
+      background-color: gray;
+      ul{
+        width: inherit;
+        height: inherit;
+        list-style-type: none;
+        @include flex-align-justify($center, space-around);
+        li{
+          height: inherit;
+          flex-grow: 1;
+          background-color: $color-yel;
+          // @include border(1px, #fff);
+          @include flex-align-justify($center, $center);
+          &:hover{
+            background-color: $color-pp;
+            transition: 1s;
+          } 
+          i{
+            color: $color-dp;
+            // !글자처럼 아이콘도 font-size로 지정해줘야 함
+            font-size: 2em;
+          }
+        }
+      }
+    }
   }
 }
 
