@@ -130,7 +130,10 @@ $per100: 100%;
       >div:nth-child(2){
         width: $per100;
         height: 30%;
-        @include flex-align-justify($center, space-around);        
+        @include flex-align-justify($center, space-around);
+        position: fixed;
+        top: 69vh;
+        left: 0;        
         >div{
           width: 70px;
           height: 70px;
