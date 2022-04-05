@@ -291,8 +291,8 @@
   border-radius: 100%;
   background-color: #8068AD;
   color: #FFFEF9;
-  -webkit-box-shadow: 1px 1px 5px rgba(200, 181, 200, 0.5);
-          box-shadow: 1px 1px 5px rgba(200, 181, 200, 0.5);
+  -webkit-box-shadow: 1px 1px 5px rgba(128, 104, 173, 0.5);
+          box-shadow: 1px 1px 5px rgba(128, 104, 173, 0.5);
 }
 
 #root .con main > div:nth-child(3) > div:active {

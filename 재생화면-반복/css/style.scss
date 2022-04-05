@@ -193,7 +193,7 @@ $per100: 100%;
           // !텍스트를 부모 태그에서 값을 주면 가상 클래스 적용해도 동떨어지지 않고 부모 태그 내 어느 영역에 움직임을 주더라도 적용이 된다
           // !가상 클래스 효과는 부모 태그에 부여하는 것이 좋다
           color: $color-cr;
-          box-shadow: 1px 1px 5px rgba($color: $color-pp, $alpha: 0.5);
+          box-shadow: 1px 1px 5px rgba($color: $color-dp, $alpha: .5);
           &:active{
             width: 65px;
             height: 65px;
