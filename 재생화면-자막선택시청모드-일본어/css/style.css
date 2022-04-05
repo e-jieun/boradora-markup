@@ -183,6 +183,9 @@
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  position: fixed;
+  top: 69vh;
+  left: 0;
 }
 
 #root .con main > div:nth-child(2) > div {
