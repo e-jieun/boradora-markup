@@ -131,7 +131,7 @@ $per100: 100%;
         width: $per100;
         height: 30%;
         @include flex-align-justify($center, space-around);        
-        position: fixed;
+                position: fixed;
         top: 69vh;
         left: 0;
         >div{
