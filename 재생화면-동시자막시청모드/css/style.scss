@@ -159,9 +159,13 @@ $per100: 100%;
         }
         >div:nth-child(4){
           @include flex-align-justify($center, $center);
+          flex-direction: column;
           >div{
-            width: 70%;
-            height: 50%;
+            // ?글씨가 오버플로우되서 글씨가 원하는대로 모양새가 나오지 않고 틀어짐
+            // !active 가상클래스의 효과 중에 border를 넣었는데 이로 인해 크기 변화가 생기면서 텍스트가 오버플로우되는 현상이 일어났던 것, 텍스트 박스 자체를 키워줌으로서 해결함
+            width: 110%;
+            height: 110%;
+            text-align: center;
           }
         }
       }
