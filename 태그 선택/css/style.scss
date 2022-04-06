@@ -34,8 +34,97 @@ $per100: 100%;
     height: inherit;
     @include flex-align-justify(center, center);
     flex-direction: column;
+    // !전체 화면에서 oveflow를 주지 않으려면 그 공간에서 overflow를 줘야 함!
+    overflow: hidden;
     .con-1{
+      width: inherit;
+      flex-grow: 1;
+      @include flex-align-justify(flex-end, flex-start);
+      >div{
+        width: 40%;
+        // height: 2.5em;
+        // background-color: $color-c4;
+        // border-radius: 30px;
+        color: $color-dp;
+        @include flex-align-justify(center, center);
+      }
+    }
+    .con-2{
+      width: 80%;
+      flex-grow: 2;
+      @include flex-align-justify(flex-start, center);
+      flex-direction: column;
+      row-gap: 5vh;
+      >div:nth-child(1){
+        width: $per100;
+        // @include border(1px, #000);
+        >div:nth-child(1){
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: $color-dp;
+        }
+        >div:nth-child(2){
+          font-size: 0.8rem;
+          color: $color-dp;
+        }
+      }
+      >div:nth-child(2){
+        width: 150vw;
+        @include flex-align-justify(flex-start, center);
+        flex-direction: column;
+        row-gap: 2vh;
 
+        &:hover{
+          // 
+          // transition: 10s;
+          position: relative;
+          right: 70vw;
+        }
+        >div{
+          flex-wrap: wrap;
+          @include flex-align-justify(center, center);
+          column-gap: 10vw;
+          row-gap: 2vh;
+          >div{
+            width: 40vw;
+            height: 3rem;
+            background-color: $color-yel;
+            color: $color-dp;
+            text-align: center;
+            border-radius: 30px;
+            @include flex-align-justify(center, center);
+            &:hover{
+              background-color: $color-dp;
+              color: $color-yel;
+            }
+            &:active{
+              @include border(2px, $color-dp);
+              background-color: $color-cr;
+              color: $color-dp;
+            }
+          }
+        }
+      }
+    }
+    .con-3{
+      width: inherit;
+      flex-grow: 1;
+      @include flex-align-justify(flex-start, flex-end);
+      >div{
+        width: 40vw;
+        height: 3rem;
+        background-color: $color-dp;
+        color: $color-cr;
+        border-radius: 30px;
+        @include flex-align-justify(center, center);
+        position: relative;
+        right: 10vw;
+        &:active{
+          @include border(2px, $color-dp);
+          background-color: $color-cr;
+          color: $color-dp;
+        }
+      }
     }
   }
 }
