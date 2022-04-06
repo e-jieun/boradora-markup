@@ -1,0 +1,261 @@
+// common
+*{
+  margin: 0;
+  padding: 0;
+}
+//variable
+$color-bk: black;
+$color-c4: #c4c4c4;
+$color-dp: #8068AD;
+$color-pp: #C8B5C8;
+$color-yel: #EDEBB2;
+$color-cr: #FFFEF9;
+$border-bk: 1px solid black;
+$border-red: 1px solid red;
+$per100: 100%;
+//class-set
+@mixin flex-align-justify($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin border($px, $color) {
+  border: $px solid $color;
+}
+//style
+#root{
+  width: 100vw;
+  height: 100vh;
+  .con{
+    width: inherit;
+    height: inherit;
+    header{
+      width: inherit;
+      height: 30vh;
+      // @include border(1px, red);
+      >div{
+        width: inherit;
+        height: 10%;
+        // @include border(1px, red);
+      }
+      // 재생화면
+      >div:nth-child(2){
+        width: inherit;
+        height: 80%;
+        background-color: $color-c4;
+        // @include border(1px, red);
+        >div{
+          width: inherit;
+          height: $per100;
+          @include flex-align-justify(center, space-around);
+          >div{
+            width: 60px;
+            height: 60px;
+            background-color: $color-cr;
+            text-align: center;
+            @include flex-align-justify(center, center);
+            border-radius: $per100;
+            color: $color-pp;
+            &:active{
+              background-color: $color-pp;
+              color: $color-cr;
+              transition: 1s;
+            }
+            >div{
+              font-size: 0.8em;
+              width: inherit;
+              text-align: center;
+            }
+          }
+        }  
+      }
+      >div:nth-child(3){
+        @include flex-align-justify(flex-end, center);
+        >div{
+          width: inherit;
+          height: 50%;
+          background-color: $color-pp;
+          @include flex-align-justify(center, flex-start);
+          >div{
+            width: 70%;
+            height: 70%;
+            background-color: $color-yel;
+            @include border(1px, $color-pp);
+            &:hover{
+              background-color: $color-cr;
+            }
+          }
+        }
+      }
+    }
+    // 동시자막 모드 con
+    main{
+      width: inherit;
+      // !main의 height가 너무 높아서 세로 스크롤이 계속 생겼음
+      // !줄여줘서 세로 스크롤 문제를 해결함
+      height: 50vh;
+      // @include border(1px, green);
+      @include flex-align-justify(flex-start, space-between);
+      flex-direction: column;
+      >div{
+        // @include border(1px, green);
+      }
+      // 자막 공간
+      >div:nth-child(1){
+        width: inherit;
+        height: 40%;
+        // @include border(1px, green);
+        @include flex-align-justify(center, center);
+        flex-direction: column;
+        // 자막 con
+        >div{
+          width: inherit;
+          // @include border(1px, red);
+          @include flex-align-justify(center, center);
+          flex-direction: column;
+          row-gap: 2vh;
+          position: relative;
+          // 자막 item
+          >div{
+            text-align: center;
+            color: $color-dp;
+            // @include border(1px, green);
+          }
+        }
+      }
+      // 속도조절 con
+      >div:nth-child(2){
+        width: inherit;
+        height: 50%;
+        @include flex-align-justify(center, center);
+        flex-direction: column;
+        row-gap: 5vw;
+        // !이전에 만들어 둔 페이지에서 수정하다보니 position 값이 들어가게 돼서 위치가 틀어졌던 부분
+        // position: relative;
+        // top: 20vh;
+        // 속도조절 text item
+        >div:nth-child(1){
+          font-size: 0.8em;
+          font-weight: 600;
+          color: $color-dp;
+        }
+        >div:nth-child(2){
+          width: inherit;
+          @include flex-align-justify(center, center);
+          flex-direction: column;
+          >div:nth-child(1){
+            width: 80%;
+            height: 3vh;
+            @include border(3px, $color-dp);
+            border-radius: 30px;
+            padding: 0.5vw;
+            // !inner shadow를 주기 위해서 inset을 사용하기
+            box-shadow: inset 1px 1px 10px rgba($color: #000000, $alpha: .2);
+            @include flex-align-justify(center, center);
+            >div{
+              width: 6vw;
+              height: 6vw;
+              max-width: 30px;
+              max-height: 30px;
+              border-radius: $per100;
+              background-color: $color-dp;
+              &:active{
+                position: relative;
+                left: 18.5vw;
+              }
+            }
+          }
+          >div:nth-child(2){
+            width: 80%;
+            height: 1.5em;
+            @include flex-align-justify(center, space-between);
+            >div{
+              >div{
+                font-size: 0.8rem;
+                color: $color-dp;
+              }
+            }
+          }
+        }
+        
+      }
+      // 기능 아이콘
+      >div:nth-child(3){
+        width: $per100;
+        height: 30%;
+        @include flex-align-justify(center, space-around);        
+        position: fixed;
+        top: 69vh;
+        left: 0;
+        >div{
+          width: 70px;
+          height: 70px;
+          // @include border(1px, $color-dp);
+          @include flex-align-justify(center, center);
+          border-radius: $per100;
+          background-color: $color-dp;
+          // !텍스트를 부모 태그에서 값을 주면 가상 클래스 적용해도 동떨어지지 않고 부모 태그 내 어느 영역에 움직임을 주더라도 적용이 된다
+          // !가상 클래스 효과는 부모 태그에 부여하는 것이 좋다
+          color: $color-cr;
+          box-shadow: 1px 1px 5px rgba($color: $color-dp, $alpha: .5);
+          &:active{
+            width: 65px;
+            height: 65px;
+            background-color: $color-cr;
+            @include border(3px, $color-dp);
+            color: $color-dp;
+          }
+          >div{
+            text-align: center;
+            // color: $color-cr;
+          }
+        }
+        // ?이 부분에서 :active 효과를 적용하면 글씨 모양이 틀어진다, 글씨가 오버플로우 된다, 그렇다고 오버플로우 히든을 줘서 없앨 수도 없고, 뭐가 문제일까?
+        // !active 가상클래스의 효과 중에 border를 넣었는데 이로 인해 크기 변화가 생기면서 텍스트가 오버플로우되는 현상이 일어났던 것, 텍스트 박스 자체를 키워줌으로서 해결함
+        >div:nth-child(4){
+          @include flex-align-justify(center, center);
+          flex-direction: column;
+          // ?이 부분, 글씨가 담기는 텍스트가 담기는 con 부분의 크기가 문제인 것 같아서 수정해봤는데 왜인지는 잘 모르겠다........................................우선 북마크 먼저 구축해보자............
+          // ?div 간격 해결할 것?
+          // !div 간격이 이미 100%인 상태여서 %단위로는 줄일 수 없었음, 그러므로 em단위를 사용해서 글자에 비례하는 크기로 height 값을 주었더니 문제를 해결할 수 있었음          
+          >div{
+            width: 110%;
+            height: 1.5em;
+            text-align: center;
+            position: relative;
+            top: 5px;
+          }
+        }
+      }
+    }
+    footer{
+      width: inherit;
+      height: 10vh;
+      position: fixed;
+      bottom: 0;
+      ul{
+        width: inherit;
+        height: inherit;
+        list-style-type: none;
+        @include flex-align-justify(center, space-around);
+        li{
+          height: inherit;
+          flex-grow: 1;
+          background-color: $color-yel;
+          // @include border(1px, #fff);
+          @include flex-align-justify(center, center);
+          &:hover{
+            background-color: $color-pp;
+            transition: 1s;
+          } 
+          i{
+            color: $color-dp;
+            // !글자처럼 아이콘도 font-size로 지정해줘야 함
+            font-size: 2em;
+          }
+        }
+      }
+    }
+  }
+}
+
