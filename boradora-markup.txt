@@ -1,2 +1,4 @@
 창문모양
 border-radius를 위에 두 부분만 줘서 만들면 될 것 같다
+
+<input type="text" name="password" placeholder="enter PASSWORD">
