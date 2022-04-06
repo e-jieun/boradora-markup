@@ -238,6 +238,10 @@
   max-width: 30px;
   max-height: 30px;
   border-radius: 100%;
+  background-color: #C8B5C8;
+}
+
+#root .con main > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:active {
   background-color: #8068AD;
 }
 

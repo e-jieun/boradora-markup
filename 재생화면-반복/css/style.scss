@@ -158,7 +158,10 @@ $per100: 100%;
               max-width: 30px;
               max-height: 30px;
               border-radius: $per100;
-              background-color: $color-dp;
+              background-color: $color-pp;
+              &:active{
+                background-color: $color-dp;
+              }
             }
           }
           >div:nth-child(2){
