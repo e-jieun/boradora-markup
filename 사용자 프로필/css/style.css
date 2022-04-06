@@ -84,8 +84,8 @@
 }
 
 #root #con main > div:nth-child(1) > div:nth-child(1) {
-  width: 100px;
-  height: 100px;
+  width: 30vw;
+  height: 30vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,7 +154,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #c4c4c4;
+  background-color: #8068AD;
+  color: #FFFEF9;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -189,7 +190,6 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
   width: 80%;
-  border: 1px solid green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -209,6 +209,11 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+#root #con section > div > div:nth-child(1) {
+  position: relative;
+  top: 5vw;
 }
 
 #root #con section > div > div:nth-child(1) span {
@@ -268,8 +273,8 @@
 }
 
 #root #con section > div > div:nth-child(3) {
-  width: 30vw;
-  height: 2rem;
+  width: 25vw;
+  height: 2.5rem;
   background-color: #c4c4c4;
   border-radius: 30px;
   -webkit-column-gap: 2vw;
@@ -283,11 +288,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #8068AD;
+  background-color: #C8B5C8;
+  position: relative;
+  top: -8vw;
 }
 
 #root #con section > div > div:nth-child(3) div, #root #con section > div > div:nth-child(3) i {
-  color: #C8B5C8;
+  color: #8068AD;
 }
 
 #root #con section div:nth-child(3) {

@@ -48,7 +48,7 @@ $per100: 100%;
         @include width-height(inherit, inherit);
         row-gap: 2vh;
         >div:nth-child(1){
-          @include width-height(100px, 100px);
+          @include width-height(30vw, 30vw);
           background-color: $color-c4;
           border-radius: $per100;
         }
@@ -66,7 +66,8 @@ $per100: 100%;
         }
         >div:nth-child(2){
           @include width-height(70vw, 3em);
-          background-color: $color-c4;
+          background-color: $color-dp;
+          color: $color-cr;
           border-radius: 30px;
           @include flex-align-justify(center, center);
         }
@@ -81,13 +82,15 @@ $per100: 100%;
       >div{
         flex-grow: 1;
         width: 80%;
-        @include border(1px, green);
+        // @include border(1px, green);
         @include flex-align-justify(center, center);
         flex-direction: column;
         >div{
           flex-grow: 1;
         }
         >div:nth-child(1){
+          position: relative;
+          top: 5vw;
           span{
             font-weight: 700;
           }
@@ -128,15 +131,17 @@ $per100: 100%;
           }
         }
         >div:nth-child(3){
-          width: 30vw;
-          height: 2rem;
+          width: 25vw;
+          height: 2.5rem;
           background-color: $color-c4;
           border-radius: 30px;
           column-gap: 2vw;
           @include flex-align-justify(center, center);
-          background-color: $color-dp;
+          background-color: $color-pp;
+          position: relative;
+          top: -8vw;
           div,i{
-            color: $color-pp;
+            color: $color-dp;
           }
         }
       }
