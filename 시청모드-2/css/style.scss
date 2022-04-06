@@ -1,0 +1,83 @@
+// common
+*{
+  margin: 0;
+  padding: 0;
+}
+//variable
+$color-bk: black;
+$color-c4: #c4c4c4;
+$color-dp: #8068AD;
+$color-pp: #C8B5C8;
+$color-yel: #EDEBB2;
+$color-cr: #FFFEF9;
+$border-bk: 1px solid black;
+$border-red: 1px solid red;
+$per100: 100%;
+//class-set
+@mixin flex-align-justify($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin border($px, $color) {
+  border: $px solid $color;
+}
+@mixin width-height($width, $height){
+  width: $width;
+  height: $height;
+}
+//style
+#root{
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-yel;
+  #con{
+    width: inherit;
+    height: inherit;
+    @include flex-align-justify(center, center);
+    flex-direction: column;
+    >div{
+      width: inherit;
+      flex-grow: 3;
+      @include flex-align-justify(center, center);
+      background-color: $color-c4;
+      color: $color-c4;
+      text-align: center;
+      // ?전체적으로 하위 속성까지 적용되므로 사용할 수가 없다
+      opacity: .8;
+      >div{
+        // ?피그마로 봤을 때랑 색이 다름.......
+        // ?색 수정 너무 눈에 안 띈다
+        // !자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요
+        // 자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요.
+        // color: rgba($color: $color-dp, $alpha: 1);
+        color: $color-dp;
+        &:hover{
+          color: $color-cr;
+        }
+      }
+    }
+    >div:nth-child(2),div:nth-child(3){
+      border-bottom: 1px solid $color-dp;
+    }
+    >div:nth-child(2),div:nth-child(3),div:nth-child(4){
+      &:hover{
+        background-color: $color-dp;
+      }
+    }
+    >div:nth-child(1){
+      flex-grow: 0.3;
+      // @include border(1px, #000);
+      @include flex-align-justify(center, flex-start);
+      >div{
+        @include flex-align-justify(center, center);
+        i{
+          font-size: 1.5rem;
+          position: relative;
+          left: 5vw;
+          color: $color-dp;
+        }
+      }
+    }
+  }
+}
