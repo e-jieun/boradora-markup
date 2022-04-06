@@ -33,10 +33,14 @@ $per100: 100%;
   @include width-height(100vw, 100vh);
   #con{
     @include width-height($per100, $per100);
+    row-gap: 2vh;
+    position: relative;
+    top: 10vh;
+    color: $color-dp;
     main{
       width: inherit;
       flex-grow: 1;
-      @include border(1px, green);
+      // @include border(1px, green);
       @include flex-align-justify(center, center);
       flex-direction: column;
       row-gap: 2vh;
@@ -51,7 +55,6 @@ $per100: 100%;
         >div:nth-child(2){
           font-size: 1.5rem;
         }
-
       }
       >div:nth-child(2){
         @include flex-align-justify(center, center);
@@ -66,14 +69,80 @@ $per100: 100%;
           background-color: $color-c4;
           border-radius: 30px;
           @include flex-align-justify(center, center);
-          
         }
       }
     }
     section{
       width: inherit;
       flex-grow: 2;
-      @include border(1px, red);
+      @include flex-align-justify(center, center);
+      flex-direction: column;
+      row-gap: 2vh;
+      >div{
+        flex-grow: 1;
+        width: 80%;
+        @include border(1px, green);
+        @include flex-align-justify(center, center);
+        flex-direction: column;
+        >div{
+          flex-grow: 1;
+        }
+        >div:nth-child(1){
+          span{
+            font-weight: 700;
+          }
+        }
+        >div:nth-child(2){
+          width: $per100;
+          @include flex-align-justify(center, center);
+          flex-direction: column;
+          position: relative;
+          top: 10vw;
+          div{
+            background-color: $color-c4;
+            border-radius: 10px;
+            // @include border(1px, #000);
+          }
+          div:nth-child(1){
+            width: 50vw;
+            height: 30vw;
+            position: relative;
+          }
+          div:nth-child(2){
+            width: 40vw;
+            height: 20vw;
+            position: relative;
+            z-index: -1;
+            top: -16vw;
+            filter: blur(1px);
+            opacity: 0.9;
+          }
+          div:nth-child(3){
+            width: 30vw;
+            height: 10vw;
+            position: relative;
+            z-index: -2;
+            top: -22vw;
+            filter: blur(2px);
+            opacity: 0.6;
+          }
+        }
+        >div:nth-child(3){
+          width: 30vw;
+          height: 2rem;
+          background-color: $color-c4;
+          border-radius: 30px;
+          column-gap: 2vw;
+          @include flex-align-justify(center, center);
+          background-color: $color-dp;
+          div,i{
+            color: $color-pp;
+          }
+        }
+      }
+      div:nth-child(3){
+        height: 12vh;
+      }
     }
     nav{
       width: inherit;

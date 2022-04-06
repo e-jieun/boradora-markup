@@ -37,6 +37,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  row-gap: 2vh;
+  position: relative;
+  top: 10vh;
+  color: #8068AD;
 }
 
 #root #con main {
@@ -44,7 +48,6 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  border: 1px solid green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -165,7 +168,130 @@
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
-  border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 2vh;
+}
+
+#root #con section > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 80%;
+  border: 1px solid green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#root #con section > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#root #con section > div > div:nth-child(1) span {
+  font-weight: 700;
+}
+
+#root #con section > div > div:nth-child(2) {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  top: 10vw;
+}
+
+#root #con section > div > div:nth-child(2) div {
+  background-color: #c4c4c4;
+  border-radius: 10px;
+}
+
+#root #con section > div > div:nth-child(2) div:nth-child(1) {
+  width: 50vw;
+  height: 30vw;
+  position: relative;
+}
+
+#root #con section > div > div:nth-child(2) div:nth-child(2) {
+  width: 40vw;
+  height: 20vw;
+  position: relative;
+  z-index: -1;
+  top: -16vw;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  opacity: 0.9;
+}
+
+#root #con section > div > div:nth-child(2) div:nth-child(3) {
+  width: 30vw;
+  height: 10vw;
+  position: relative;
+  z-index: -2;
+  top: -22vw;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+  opacity: 0.6;
+}
+
+#root #con section > div > div:nth-child(3) {
+  width: 30vw;
+  height: 2rem;
+  background-color: #c4c4c4;
+  border-radius: 30px;
+  -webkit-column-gap: 2vw;
+          column-gap: 2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #8068AD;
+}
+
+#root #con section > div > div:nth-child(3) div, #root #con section > div > div:nth-child(3) i {
+  color: #C8B5C8;
+}
+
+#root #con section div:nth-child(3) {
+  height: 12vh;
 }
 
 #root #con nav {
