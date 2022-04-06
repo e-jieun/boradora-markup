@@ -42,21 +42,25 @@
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #c4c4c4;
-  color: #FFFEF9;
+  color: #c4c4c4;
   text-align: center;
+  opacity: .8;
 }
 
 #root #con > div > div {
-  color: #8068ad;
+  color: #8068AD;
+}
+
+#root #con > div > div:hover {
+  color: #FFFEF9;
 }
 
 #root #con > div:nth-child(2), #root #con div:nth-child(3) {
-  border-bottom: 2px solid #EDEBB2;
+  border-bottom: 1px solid #8068AD;
 }
 
-#root #con > div:nth-child(2), #root #con div:nth-child(3), #root #con div:nth-child(4) {
-  -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+#root #con > div:nth-child(2):hover, #root #con div:nth-child(3):hover, #root #con div:nth-child(4):hover {
+  background-color: #8068AD;
 }
 
 #root #con > div:nth-child(1) {
@@ -90,6 +94,6 @@
   font-size: 1.5rem;
   position: relative;
   left: 5vw;
-  color: #8068ad;
+  color: #8068AD;
 }
 /*# sourceMappingURL=style.css.map */
