@@ -22,4 +22,20 @@ $per100: 100%;
 @mixin border($px, $color) {
   border: $px solid $color;
 }
+@mixin linear-gra($direction, $color, $color) {
+  background: linear-gradient($direction, $color, $color);  
+}
 //style
+#root{
+  width: 100vw;
+  height: 100vh;
+  #con{
+    width: inherit;
+    height: inherit;
+    @include flex-align-justify(center, center);
+    flex-direction: column;
+    .con-1{
+
+    }
+  }
+}
