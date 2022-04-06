@@ -35,20 +35,44 @@ $per100: 100%;
     @include width-height($per100, $per100);
     main{
       width: inherit;
-      flex-shrink: 2;
+      flex-grow: 1;
       @include border(1px, green);
+      @include flex-align-justify(center, center);
+      flex-direction: column;
+      row-gap: 2vh;
       >div:nth-child(1){
         @include width-height(inherit, inherit);
+        row-gap: 2vh;
         >div:nth-child(1){
           @include width-height(100px, 100px);
           background-color: $color-c4;
           border-radius: $per100;
         }
+        >div:nth-child(2){
+          font-size: 1.5rem;
+        }
+
+      }
+      >div:nth-child(2){
+        @include flex-align-justify(center, center);
+        flex-direction: column;
+        row-gap: 2vh;
+        >div:nth-child(1){
+          @include flex-align-justify(center, center);
+          column-gap: 1em;
+        }
+        >div:nth-child(2){
+          @include width-height(70vw, 3em);
+          background-color: $color-c4;
+          border-radius: 30px;
+          @include flex-align-justify(center, center);
+          
+        }
       }
     }
     section{
       width: inherit;
-      flex-shrink: 1;
+      flex-grow: 2;
       @include border(1px, red);
     }
     nav{
