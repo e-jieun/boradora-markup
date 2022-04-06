@@ -40,30 +40,30 @@ $per100: 100%;
       width: inherit;
       flex-grow: 3;
       @include flex-align-justify(center, center);
-      // @include border(2px, $color-yel);
       background-color: $color-c4;
       color: $color-dp;
       text-align: center;
-      // opacity: .5;
+      opacity: .5;
       >div{
         // ?피그마로 봤을 때랑 색이 다름.......
-        // !색 수정 너무 눈에 안 띈다
-        color: $color-dp;
+        // ?색 수정 너무 눈에 안 띈다
+        // !자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요
+        // 자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요.
+        color: rgba($color: $color-dp
+        , $alpha: 1);
       }
     }
     >div:nth-child(2),div:nth-child(3){
       border-bottom: 2px solid $color-yel;
     }
     >div:nth-child(1){
-      // flex-shrink: 1;
-      flex-grow: 1;
-      height: 2rem;
-      // @include border(1px, $color-dp);
-      @include flex-align-justify(center, flex-start);
-      position: fixed;
-      top: 0;
+      flex-grow: 0.3;
+      // @include border(1px, #000);
+      @include flex-align-justify(flex-end, flex-start);
       >div{
+        @include flex-align-justify(center, center);
         i{
+          font-size: 1.5rem;
           position: relative;
           left: 10vw;
         }
