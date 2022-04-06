@@ -42,9 +42,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #c4c4c4;
-  color: #8068AD;
+  color: #FFFEF9;
   text-align: center;
-  opacity: .5;
 }
 
 #root #con > div > div {
@@ -55,6 +54,11 @@
   border-bottom: 2px solid #EDEBB2;
 }
 
+#root #con > div:nth-child(2), #root #con div:nth-child(3), #root #con div:nth-child(4) {
+  -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
 #root #con > div:nth-child(1) {
   -webkit-box-flex: 0.3;
       -ms-flex-positive: 0.3;
@@ -62,9 +66,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -85,6 +89,7 @@
 #root #con > div:nth-child(1) > div i {
   font-size: 1.5rem;
   position: relative;
-  left: 10vw;
+  left: 5vw;
+  color: #8068ad;
 }
 /*# sourceMappingURL=style.css.map */
