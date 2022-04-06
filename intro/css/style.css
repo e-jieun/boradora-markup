@@ -98,6 +98,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border: 1px solid black;
   position: relative;
   top: -5vh;
 }
