@@ -44,6 +44,14 @@ $per100: 100%;
         // @include border(1px, black);
       }
       >div:nth-child(1){
+        position: absolute;
+        left: 10vw;
+        top: 10vw;
+        i{
+          color: $color-dp;
+        }
+      }
+      >div:nth-child(2){
         @include flex-align-justify(flex-end, center);
         img{
           @include width-height(200px, 200px);
@@ -52,7 +60,7 @@ $per100: 100%;
           top: 5vh;  
         }
       }
-      >div:nth-child(2){
+      >div:nth-child(3){
         position: relative;
         top: 10vh;
         @include flex-align-justify(flex-start, center);

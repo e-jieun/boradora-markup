@@ -72,6 +72,13 @@
 }
 
 #root #con main > div:nth-child(1) {
+  position: absolute;
+  top: 10vw;
+  left: 10vw;
+  color: #8068AD;
+}
+
+#root #con main > div:nth-child(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,7 +90,7 @@
           justify-content: center;
 }
 
-#root #con main > div:nth-child(1) img {
+#root #con main > div:nth-child(2) img {
   width: 200px;
   height: 200px;
   display: -webkit-box;
@@ -100,13 +107,11 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 1px solid black;
-  position: relative;
-  top: 5vh;
 }
 
-#root #con main > div:nth-child(2) {
+#root #con main > div:nth-child(3) {
   position: relative;
-  top: 10vh;
+  top: 5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -118,7 +123,7 @@
           justify-content: center;
 }
 
-#root #con main > div:nth-child(2) > div {
+#root #con main > div:nth-child(3) > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,7 +140,7 @@
   row-gap: 5vw;
 }
 
-#root #con main > div:nth-child(2) > div input {
+#root #con main > div:nth-child(3) > div input {
   width: 58vw;
   height: 3.5rem;
   display: -webkit-box;
@@ -162,7 +167,7 @@
           justify-content: center;
 }
 
-#root #con main > div:nth-child(2) > div > div:nth-child(4) {
+#root #con main > div:nth-child(3) > div > div:nth-child(4) {
   width: 60vw;
   height: 4rem;
   display: -webkit-box;
@@ -187,7 +192,7 @@
           justify-content: flex-end;
 }
 
-#root #con main > div:nth-child(2) > div > div:nth-child(4) > div {
+#root #con main > div:nth-child(3) > div > div:nth-child(4) > div {
   background-color: #8068AD;
   width: 20vw;
   height: 4rem;
@@ -215,7 +220,7 @@
           column-gap: 2vw;
 }
 
-#root #con main > div:nth-child(2) > div > div:nth-child(4) > div > div, #root #con main > div:nth-child(2) > div > div:nth-child(4) > div i {
+#root #con main > div:nth-child(3) > div > div:nth-child(4) > div > div, #root #con main > div:nth-child(3) > div > div:nth-child(4) > div i {
   color: #EDEBB2;
 }
 /*# sourceMappingURL=style.css.map */
