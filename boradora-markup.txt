@@ -2,3 +2,7 @@
 border-radius를 위에 두 부분만 줘서 만들면 될 것 같다
 
 <input type="text" name="password" placeholder="enter PASSWORD">
+
+로그인 정보 오류 페이지 -> 비밀번호 찾기
+= 패스워드 잃어버렸을 때의 패스워드 찾기
+= 선택 사항
