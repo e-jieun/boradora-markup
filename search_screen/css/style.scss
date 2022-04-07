@@ -214,15 +214,16 @@ $per100: 100%;
           // !height 값을 지정해줘야 함
           height: $per100;
           flex-grow: 1;
+          // background: none;
           background-color: $color-yel;
           // @include border(1px, #fff);
           @include flex-align-justify(center, center);
+          color: $color-dp;
           &:hover{
             background-color: $color-pp;
             transition: 1s;
           } 
           i{
-            color: $color-dp;
             // !글자처럼 아이콘도 font-size로 지정해줘야 함
             font-size: 2em;
             background-color: $color-yel;

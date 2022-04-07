@@ -124,6 +124,10 @@ $per100: 100%;
             color: $color-dp;
             // @include border(1px, green);
           }
+          >div:nth-child(2){
+            position: absolute;
+            left: 10vw;
+          }
         }
       }
       // 기능 아이콘

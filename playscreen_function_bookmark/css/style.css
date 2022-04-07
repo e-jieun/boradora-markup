@@ -173,6 +173,11 @@
   color: #8068AD;
 }
 
+#root .con main > div:nth-child(1) > div > div:nth-child(3) {
+  position: absolute;
+  left: 10vw;
+}
+
 #root .con main > div:nth-child(2) {
   width: inherit;
   display: -webkit-box;
