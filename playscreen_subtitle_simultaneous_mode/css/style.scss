@@ -19,6 +19,7 @@ $border-bk: 1px solid black;
 $border-red: 1px solid red;
 $center: center;
 $per100: 100%;
+$pc: 1080px;
 //class-set
 @mixin flex-align-justify($align, $justify) {
   display: flex;
@@ -28,6 +29,11 @@ $per100: 100%;
 @mixin border($px, $color) {
   border: $px solid $color;
 }
+@mixin pc {
+  @media (min-width: $pc){
+    @content;
+  }
+}
 //style
 #root{
   width: 100vw;
@@ -36,19 +42,29 @@ $per100: 100%;
     width: inherit;
     height: inherit;
     header{
+      @include pc{
+        width: 0;
+        height: 0;
+      }
       width: inherit;
       height: 30vh;
-      // @include border(1px, red);
       >div{
         width: inherit;
         height: 10%;
-        // @include border(1px, red);
+        @include pc{
+          width: 0;
+          height: 0;
+        }
       }
       // 재생화면
       >div:nth-child(2){
         width: inherit;
         height: 80%;
         background-color: $color-c4;
+        @include pc{
+          width: 100vw;
+          height: 100vh;
+        }
         // @include border(1px, red);
         >div{
           width: inherit;
@@ -112,6 +128,10 @@ $per100: 100%;
         @include flex-align-justify(flex-start, $center);
         // 자막 con
         >div{
+          @include pc{
+            position: absolute;
+            bottom: -5vh;
+          }
           width: inherit;
           height: 50%;
           // @include border(1px, green);
@@ -125,6 +145,11 @@ $per100: 100%;
             // @include border(1px, green);
           }
           >div:nth-child(3){
+            @include pc{
+              position: fixed;
+              top: 5vw;
+              left: 10vw;
+            }
             position: absolute;
             left: 10vw;
           }
@@ -132,6 +157,10 @@ $per100: 100%;
       }
       // 기능 아이콘
       >div:nth-child(2){
+        @include pc{
+          height: 45%;
+          position: absolute;
+        }
         width: $per100;
         height: 30%;
         @include flex-align-justify($center, space-around);
@@ -181,15 +210,27 @@ $per100: 100%;
       }
     }
     footer{
+      @include pc{
+        width: 0;
+        height: 0;
+      }
       width: inherit;
       height: 10vh;
       background-color: gray;
       ul{
+      @include pc{
+        width: 0;
+        height: 0;
+      }
         width: inherit;
         height: inherit;
         list-style-type: none;
         @include flex-align-justify($center, space-around);
         li{
+          @include pc{
+            width: 0;
+            height: 0;
+          }
           height: inherit;
           flex-grow: 1;
           background-color: $color-yel;
@@ -199,7 +240,11 @@ $per100: 100%;
             background-color: $color-pp;
             transition: 1s;
           } 
-          i{
+          i{  
+            @include pc{
+              color: none;
+              font-size: 0;
+            }
             color: $color-dp;
             // !글자처럼 아이콘도 font-size로 지정해줘야 함
             font-size: 2em;
@@ -207,6 +252,6 @@ $per100: 100%;
         }
       }
     }
+    
   }
 }
-

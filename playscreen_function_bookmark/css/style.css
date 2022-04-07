@@ -18,15 +18,36 @@
   height: 30vh;
 }
 
+@media (min-width: 1080px) {
+  #root .con header {
+    width: 0;
+    height: 0;
+  }
+}
+
 #root .con header > div {
   width: inherit;
   height: 10%;
+}
+
+@media (min-width: 1080px) {
+  #root .con header > div {
+    width: 0;
+    height: 0;
+  }
 }
 
 #root .con header > div:nth-child(2) {
   width: inherit;
   height: 80%;
   background-color: #c4c4c4;
+}
+
+@media (min-width: 1080px) {
+  #root .con header > div:nth-child(2) {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 #root .con header > div:nth-child(2) > div {
@@ -149,6 +170,22 @@
   top: 7vh;
 }
 
+@media (min-width: 1080px) {
+  #root .con main > div:nth-child(1) {
+    width: inherit;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 #root .con main > div:nth-child(1) > div {
   width: inherit;
   display: -webkit-box;
@@ -168,6 +205,13 @@
   position: relative;
 }
 
+@media (min-width: 1080px) {
+  #root .con main > div:nth-child(1) > div {
+    position: absolute;
+    bottom: -5vh;
+  }
+}
+
 #root .con main > div:nth-child(1) > div > div {
   text-align: center;
   color: #8068AD;
@@ -176,6 +220,14 @@
 #root .con main > div:nth-child(1) > div > div:nth-child(3) {
   position: absolute;
   left: 10vw;
+}
+
+@media (min-width: 1080px) {
+  #root .con main > div:nth-child(1) > div > div:nth-child(3) {
+    position: fixed;
+    top: 5vw;
+    left: 10vw;
+  }
 }
 
 #root .con main > div:nth-child(2) {
@@ -196,6 +248,19 @@
   row-gap: 5vw;
   position: relative;
   top: 20vh;
+}
+
+@media (min-width: 1080px) {
+  #root .con main > div:nth-child(2) {
+    width: 20%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #8068AD;
+    opacity: .5;
+    row-gap: 0;
+  }
 }
 
 #root .con main > div:nth-child(2) > div {
@@ -226,6 +291,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (min-width: 1080px) {
+  #root .con main > div:nth-child(2) > div > div {
+    width: 20vw;
+  }
 }
 
 #root .con main > div:nth-child(2) > div > div > div {
@@ -267,6 +338,13 @@
   position: fixed;
   top: 69vh;
   left: 0;
+}
+
+@media (min-width: 1080px) {
+  #root .con main > div:nth-child(3) {
+    height: 45%;
+    position: absolute;
+  }
 }
 
 #root .con main > div:nth-child(3) > div {
@@ -330,6 +408,13 @@
   position: fixed;
 }
 
+@media (min-width: 1080px) {
+  #root .con footer {
+    width: 0;
+    height: 0;
+  }
+}
+
 #root .con footer ul {
   width: inherit;
   height: inherit;
@@ -342,6 +427,13 @@
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+@media (min-width: 1080px) {
+  #root .con footer ul {
+    width: 0;
+    height: 0;
+  }
 }
 
 #root .con footer ul li {
@@ -361,6 +453,13 @@
           justify-content: center;
 }
 
+@media (min-width: 1080px) {
+  #root .con footer ul li {
+    width: 0;
+    height: 0;
+  }
+}
+
 #root .con footer ul li:hover {
   background-color: #C8B5C8;
   -webkit-transition: 1s;
@@ -370,5 +469,12 @@
 #root .con footer ul li i {
   color: #8068AD;
   font-size: 2em;
+}
+
+@media (min-width: 1080px) {
+  #root .con footer ul li i {
+    color: none;
+    font-size: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
