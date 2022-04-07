@@ -106,12 +106,16 @@ $per100: 100%;
           border-radius: 30px;
           @include flex-align-justify(flex-end, flex-end);
           >div{
-            @include width-height(30px, 30px);
+            @include width-height(10vw, 10vw);
             background-color: $color-dp;
             border-radius: $per100;
             position: relative;
             right: 3vw;
             bottom: 3vw;
+            @include flex-align-justify(center, center);
+            i{
+              color: $color-yel;
+            }
           }
         }
       }

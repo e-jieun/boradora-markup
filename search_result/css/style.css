@@ -232,8 +232,8 @@
 }
 
 #root #con > main > ul > li > div {
-  width: 30px;
-  height: 30px;
+  width: 10vw;
+  height: 10vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,6 +252,15 @@
   position: relative;
   right: 3vw;
   bottom: 3vw;
+  display: flex;
+  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#root #con > main > ul > li > div i {
+  color: #EDEBB2;
 }
 
 #root #con > main > div:nth-child(3) {
