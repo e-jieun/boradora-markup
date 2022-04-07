@@ -6,3 +6,29 @@ border-radius를 위에 두 부분만 줘서 만들면 될 것 같다
 로그인 정보 오류 페이지 -> 비밀번호 찾기
 = 패스워드 잃어버렸을 때의 패스워드 찾기
 = 선택 사항
+
+flex-grow 속성 사용해서 레이아웃 나누기
+
+계속 스크롤 해야하는 컨텐츠의 배경색 지정
+=> *{
+  background-color: $color-pp;를 지정했는데
+}
+배경색이 없는 곳에선 한꺼번에 적용이 돼서 모두 배경색을 지정해줘야 했음
+
+하단 메뉴가 fixed로 지정되다보니 가려지는 부분
+=> empty con인 div를 html에서 작성해주고 contents con 아래에 배치해줌, position 값을 주면 위로 올라가서 겹쳐지거나 모양이 틀어짐
+
+i의 크기 지정
+=> 폰트 사이즈 지정과 같음
+
+input 요소의 글씨 위치 조정
+=> padding: 1vw;를 줘서 해결함, border: none;하면 default인 border도 사라짐
+
+*opacity 부분 해결하기
+=>자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요
+color: rgba($color: $color-dp, $alpha: 1);
+
+*끊임없이 늘어나는 부분들 max-width, max-height으로 해결하기
+
+*&lt;, &gt; 부분 font awesome i 태그로 해결하기
+*chevron
