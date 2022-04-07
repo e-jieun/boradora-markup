@@ -35,9 +35,11 @@ $per100: 100%;
   // ?100vh로 해주면 배경이 중간에 끊김
   @include width-height(100vw, 100vh);
   width: 100vw;
-  // !배경색이 없는 것이 해결방안??
+  // !배경색이 되도록이면 없는 것이 해결방안
+  // background: none;, background-color를 동일하게 맞춰주는 방법도 있음
   // background-color: $color-pp;
 
+// search-screen
   #search-con{
     @include width-height(100vw, 100vh);
     background-color: $color-yel;
@@ -45,6 +47,9 @@ $per100: 100%;
     position: absolute;
     z-index: 1;
     @include flex-align-justify(center, center);
+    top: 10vh;
+    box-shadow: 1px 1px 10px rgba($color: $color-dp, $alpha: .5);
+    // opacity: .2;
     >div{
       background-color: $color-yel;
       @include width-height(80vw, 80vh);
@@ -96,6 +101,7 @@ $per100: 100%;
     }
   }
 
+// home-screen
   #con{
     @include width-height(inherit, inherit);
     header{
@@ -103,14 +109,41 @@ $per100: 100%;
       background-color: $color-yel;
       // !position: absolute;로 위치 고정 시켜두기
       position: absolute;
-      @include border(5px, black);
+      // @include border(5px, black);
+      overflow: hidden;
+      @include flex-align-justify(center, flex-start);
       >div{
-        @include width-height(30%, $per100);
+        @include width-height(30%, 100%);
         background-color: $color-yel;
         @include flex-align-justify(center, center);
         img{
           @include width-height(80%, 80%);
           background-color: $color-yel;
+        }
+      }
+      >div:nth-child(2){
+        @include width-height(70vw, 9vh);
+        // @include border(1px, black);
+        >div{
+          @include width-height(90%, 50%);
+          background-color: #fff;
+          border-radius: 30px;
+          box-shadow: inset 1px 1px 5px rgba($color: $color-dp, $alpha: .5);
+          @include flex-align-justify(center, flex-end);
+          >div{
+            @include width-height(5vw, 5vw);
+            color: $color-cr;
+            border-radius: 100%;
+            background-color: $color-dp;
+            @include flex-align-justify(center, center);
+            position: relative;
+            right: 1vw;
+            box-shadow: 1px 1px 1px rgba($color: $color-dp, $alpha: .5);
+
+            i{
+              background: none;
+            }
+          }
         }
       }
     } 
@@ -169,6 +202,7 @@ $per100: 100%;
       ;
       position: fixed;
       bottom: 0;
+      z-index: 2;
       ul{
         // !height 값을 지정해줘야 함
         height: $per100;

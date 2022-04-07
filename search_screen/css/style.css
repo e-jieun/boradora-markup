@@ -29,6 +29,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  top: 10vh;
+  -webkit-box-shadow: 1px 1px 10px rgba(128, 104, 173, 0.5);
+          box-shadow: 1px 1px 10px rgba(128, 104, 173, 0.5);
 }
 
 #root #search-con > div {
@@ -157,7 +160,16 @@
   height: 10%;
   background-color: #EDEBB2;
   position: absolute;
-  border: 5px solid black;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 #root #con header > div {
@@ -179,6 +191,54 @@
   width: 80%;
   height: 80%;
   background-color: #EDEBB2;
+}
+
+#root #con header > div:nth-child(2) {
+  width: 70vw;
+  height: 9vh;
+}
+
+#root #con header > div:nth-child(2) > div {
+  width: 90%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 30px;
+  -webkit-box-shadow: inset 1px 1px 5px rgba(128, 104, 173, 0.5);
+          box-shadow: inset 1px 1px 5px rgba(128, 104, 173, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#root #con header > div:nth-child(2) > div > div {
+  width: 5vw;
+  height: 5vw;
+  color: #FFFEF9;
+  border-radius: 100%;
+  background-color: #8068AD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  right: 1vw;
+  -webkit-box-shadow: 1px 1px 1px rgba(128, 104, 173, 0.5);
+          box-shadow: 1px 1px 1px rgba(128, 104, 173, 0.5);
+}
+
+#root #con header > div:nth-child(2) > div > div i {
+  background: none;
 }
 
 #root #con main {
@@ -285,6 +345,7 @@
   background-color: #FFFEF9;
   position: fixed;
   bottom: 0;
+  z-index: 2;
 }
 
 #root #con nav ul {
