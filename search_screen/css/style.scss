@@ -124,25 +124,25 @@ $per100: 100%;
       >div:nth-child(2){
         @include width-height(70vw, 9vh);
         // @include border(1px, black);
-        >div{
+        >input{
           @include width-height(90%, 50%);
           background-color: #fff;
           border-radius: 30px;
+          border: none;
+          padding: 1vw;
+          padding-left: 2vw;
           box-shadow: inset 1px 1px 5px rgba($color: $color-dp, $alpha: .5);
           @include flex-align-justify(center, flex-end);
-          >div{
-            @include width-height(5vw, 5vw);
-            color: $color-cr;
-            border-radius: 100%;
-            background-color: $color-dp;
-            @include flex-align-justify(center, center);
-            position: relative;
-            right: 1vw;
-            box-shadow: 1px 1px 1px rgba($color: $color-dp, $alpha: .5);
+          
 
-            i{
-              background: none;
-            }
+        }
+        >div{
+          @include width-height(50px, 50px);
+          @include flex-align-justify(center, center);
+          background: none;
+          i{
+            background: none;
+            color: $color-dp;
           }
         }
       }
