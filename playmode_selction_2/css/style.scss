@@ -49,7 +49,6 @@ $per100: 100%;
         // ?피그마로 봤을 때랑 색이 다름.......
         // ?색 수정 너무 눈에 안 띈다
         // !자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요
-        // 자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요.
         // color: rgba($color: $color-dp, $alpha: 1);
         color: $color-dp;
         &:hover{
