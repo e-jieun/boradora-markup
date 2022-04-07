@@ -30,11 +30,11 @@ $per100: 100%;
 }
 //style
 #root{
+  background-color: $color-pp;
   @include width-height(100vw, 100vh);
   overflow: hidden;
   #con{
     @include width-height(inherit, inherit);
-    background-color: $color-pp;
     main{
       @include width-height(inherit, inherit);
       @include flex-align-justify(center, center);
@@ -48,11 +48,13 @@ $per100: 100%;
         img{
           @include width-height(200px, 200px);
           @include border(1px, black);
+          position: relative;
+          top: 5vh;
         }
       }
       >div:nth-child(2){
         position: relative;
-        top: 5vh;
+        top: 10vh;
         @include flex-align-justify(flex-start, center);
         >div{
           @include flex-align-justify(center, center);
@@ -67,7 +69,7 @@ $per100: 100%;
               @include flex-align-justify(center, center);
               // padding: 2vw;
             }
-            >div:nth-child(3){
+            >div:nth-child(4){
               @include width-height(60vw, 4rem);
               @include flex-align-justify(flex-end, flex-end);
               >div{
