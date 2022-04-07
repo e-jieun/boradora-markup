@@ -48,11 +48,13 @@ $per100: 100%;
         img{
           @include width-height(200px, 200px);
           @include border(1px, black);
+          position: relative;
+          top: 5vh;  
         }
       }
       >div:nth-child(2){
         position: relative;
-        top: 5vh;
+        top: 10vh;
         @include flex-align-justify(flex-start, center);
         >div{
           @include flex-align-justify(center, center);

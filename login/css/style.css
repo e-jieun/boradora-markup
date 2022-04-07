@@ -100,11 +100,13 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 1px solid black;
+  position: relative;
+  top: 5vh;
 }
 
 #root #con main > div:nth-child(2) {
   position: relative;
-  top: 5vh;
+  top: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
