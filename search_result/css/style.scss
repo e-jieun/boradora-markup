@@ -78,6 +78,9 @@ $per100: 100%;
             background-color: $color-pp;
             @include flex-align-justify(center, center);
             border-radius: 30px;
+            div{
+              font-weight: 700;
+            }
           }
         }
       }
@@ -86,12 +89,16 @@ $per100: 100%;
     // !구분 좀 잘하자!
     >main {
       @include width-height($per100, 100%);
+      position: relative;
+      top: 5vh;
       >div:nth-child(1){
         @include width-height($per100, 5vh);
         @include flex-align-justify(center, flex-end);
         font-size: 0.8rem;
         color: $color-dp;
         font-weight: 700;
+        position: relative;
+        top: -2vh;
       }
       >ul{
         @include width-height($per100, 90%);
@@ -107,6 +114,8 @@ $per100: 100%;
           @include flex-align-justify(flex-end, flex-end);
           >div{
             @include width-height(10vw, 10vw);
+            max-width: 50px;
+            max-height: 50px;
             background-color: $color-dp;
             border-radius: $per100;
             position: relative;
