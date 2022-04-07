@@ -41,16 +41,16 @@ $per100: 100%;
     @include width-height(inherit, inherit);
     header{
       @include width-height(inherit, 10%);
-      background-color: gray;
+      background-color: $color-yel;
       // !position: absolute;로 위치 고정 시켜두기
       position: absolute;
       >div{
         @include width-height(30%, $per100);
-        background-color: gray;
+        background-color: $color-yel;
         @include flex-align-justify(center, center);
         img{
           @include width-height(80%, 80%);
-          background-color: gray;
+          background-color: $color-yel;
         }
       }
     } 
