@@ -161,6 +161,11 @@
 }
 
 #root #con main > div:nth-child(2) > div > div:nth-child(3) {
+  font-size: 0.8rem;
+  color: #EDEBB2;
+}
+
+#root #con main > div:nth-child(2) > div > div:nth-child(4) {
   width: 60vw;
   height: 4rem;
   display: -webkit-box;
@@ -185,7 +190,7 @@
           justify-content: flex-end;
 }
 
-#root #con main > div:nth-child(2) > div > div:nth-child(3) > div {
+#root #con main > div:nth-child(2) > div > div:nth-child(4) > div {
   background-color: #8068AD;
   width: 20vw;
   height: 4rem;
@@ -213,7 +218,7 @@
           column-gap: 2vw;
 }
 
-#root #con main > div:nth-child(2) > div > div:nth-child(3) > div > div, #root #con main > div:nth-child(2) > div > div:nth-child(3) > div i {
+#root #con main > div:nth-child(2) > div > div:nth-child(4) > div > div, #root #con main > div:nth-child(2) > div > div:nth-child(4) > div i {
   color: #EDEBB2;
 }
 /*# sourceMappingURL=style.css.map */

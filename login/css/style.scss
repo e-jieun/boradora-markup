@@ -68,6 +68,10 @@ $per100: 100%;
               // padding: 2vw;
             }
             >div:nth-child(3){
+              font-size: 0.8rem;
+              color: $color-yel;
+            }
+            >div:nth-child(4){
               @include width-height(60vw, 4rem);
               @include flex-align-justify(flex-end, flex-end);
               >div{
