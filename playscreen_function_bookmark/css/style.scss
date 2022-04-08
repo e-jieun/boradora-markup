@@ -134,8 +134,8 @@ $pc: 1080px;
         // 자막 con
         >div{
           @include pc{
-            position: absolute;
-            bottom: -5vh;
+            position: fixed;
+            bottom: 15vh;
           }
           width: inherit;
           // @include border(1px, red);
@@ -161,7 +161,7 @@ $pc: 1080px;
         }
       }
       // 북마크 con
-      >div:nth-child(2){
+      >div:nth-child(3){
         @include pc{
           width: 20%;
           height: 100vh;
@@ -183,6 +183,9 @@ $pc: 1080px;
         position: relative;
         top: 20vh;
         >div{
+          @include pc{
+            position: absolute;
+          }
           // @include border(1px, black);
           @include flex-align-justify(center, center);
           flex-direction: column;
@@ -214,6 +217,7 @@ $pc: 1080px;
               // letter-spacing: 0.3vw;
               letter-spacing: 2px;
               box-shadow: 1px 1px 5px rgba($color: $color-dp, $alpha: 0.5);
+              @include 
             }
           }
         }

@@ -90,7 +90,7 @@
           justify-content: center;
 }
 
-#root #con main > div:nth-child(2) img {
+#root #con main > div:nth-child(2) svg {
   width: 200px;
   height: 200px;
   display: -webkit-box;
@@ -106,7 +106,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid black;
   position: relative;
   top: -5vh;
 }

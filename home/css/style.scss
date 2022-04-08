@@ -48,7 +48,7 @@ $per100: 100%;
         @include width-height(30%, $per100);
         background-color: $color-yel;
         @include flex-align-justify(center, center);
-        img{
+        svg{
           @include width-height(80%, 80%);
           background-color: $color-yel;
         }

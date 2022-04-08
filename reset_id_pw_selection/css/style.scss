@@ -53,9 +53,9 @@ $per100: 100%;
       }
       >div:nth-child(2){
         @include flex-align-justify(flex-end, center);
-        img{
+        svg{
           @include width-height(200px, 200px);
-          @include border(1px, black);
+          // @include border(1px, black);
           position: relative;
           top: 5vh;  
         }

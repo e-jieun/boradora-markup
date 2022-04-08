@@ -1,0 +1,164 @@
+// class set
+$border-bk: 1px solid black;
+$border-red: 1px solid red;
+$align: center;
+$justify: center;
+$width100: 100%;
+$height100: 100%;
+$radius100px: 100px;
+
+// font
+$font-stack: sans-serif,
+sans;
+
+// variable
+$color-sa: salmon;
+$color-bk: black;
+$color-c4: #c4c4c4;
+$color-fff: #fff;
+$color-yel: #EDEBB2;
+$color-dg: rgb(54, 54, 54);
+$color-pk: pink;
+$color-pp: #C8B5C8;
+
+// !watching 상태인지 꼭 확인하기!
+.root {
+  width: 200vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+
+
+  .container1 {
+    width: 20%;
+    height: $height100;
+
+    div {
+      width: $width100;
+      height: $height100;
+      background-color: $color-pp;
+      // *module(@use), mix(@mixin) 부분의 설명 더 자세히 보자!
+      // !@mixin 부분은 아직 잘 못 써서 더 써봐야 할 것 같다, 이 부분을 고쳐볼 것!
+      display: flex;
+      flex-direction: column;
+      align-items: $align;
+      justify-content: flex-start;
+
+      div {
+        width: 90%;
+        height: 10%;
+        color: $color-fff;
+      }
+      div:nth-child(1) {
+        width: 90%;
+        height: 10%;
+        color: $color-fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // position: relative;
+        // top: 2vh;
+        svg{
+          // border: 1px solid black;
+          width: 70%;
+          height: 70%;
+        }
+        >div{
+          background: none;
+        }
+      }
+      // *logo 위치 조정 수정하기
+      div:nth-child(2) {
+        background-color: $color-fff;
+        height: 4vw;
+        border-radius: $radius100px;
+      }
+
+      div:nth-child(3) {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
+
+        div {
+          width: 30px;
+          height: 30px;
+          background-color: $color-fff;
+          border-radius: $radius100px;
+          // ?왜 적용이 안되는 걸까요?
+          // !&:적용할 가상 클래스 효과명{} 
+          // => :hover도 마찬가지의 cyntax로 사용
+          &:active {
+            background-color: $color-yel;
+          }
+        }
+      }
+
+      footer{
+        width: $width100;
+        height: 80vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        >div{
+          width: 90%;
+          height: 30%;
+          text-align: end;
+          font-size: small;
+        }
+      }
+
+    }
+
+  }
+
+  .container2 {
+    width: 100%;
+    height: $height100;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 0.5vw;
+
+    >div {
+      // border: $border-bk;
+      width: 30%;
+      height: $height100;
+
+      >div:nth-child(1) {
+        width: $width100;
+        height: 60%;
+        background-color: $color-c4;
+      }
+
+      >div:nth-child(2) {
+        width: $width100;
+        height: 40%;
+        background-color: $color-yel;
+        display: flex;
+        flex-direction: column;
+        align-items: $justify;
+
+        >div {
+          width: 90%;
+          color: $color-pp;
+        }
+
+        >div:nth-child(1) {
+          font-size: 1.5em;
+        }
+
+        >div:nth-child(2) {
+          color: $color-dg;
+          font-size: small;
+        }
+      }
+
+    }
+
+    >div:nth-child(1) {
+      width: 60%;
+      height: inherit;
+    }
+  }
+
+}

@@ -207,8 +207,8 @@
 
 @media (min-width: 1080px) {
   #root .con main > div:nth-child(1) > div {
-    position: absolute;
-    bottom: -5vh;
+    position: fixed;
+    bottom: 15vh;
   }
 }
 
