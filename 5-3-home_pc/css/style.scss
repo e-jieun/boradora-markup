@@ -7,10 +7,6 @@ $width100: 100%;
 $height100: 100%;
 $radius100px: 100px;
 
-// font
-$font-stack: sans-serif,
-sans;
-
 // variable
 $color-sa: salmon;
 $color-bk: black;
@@ -52,18 +48,19 @@ $color-pp: #C8B5C8;
       div:nth-child(1) {
         width: 90%;
         height: 10%;
+        background: none;
         color: $color-fff;
         display: flex;
         align-items: center;
         justify-content: center;
-        // position: relative;
-        // top: 2vh;
         svg{
-          // border: 1px solid black;
           width: 70%;
-          height: 70%;
+          height: 50%;
+          background: none;
         }
         >div{
+          width: 0;
+          height: 0;
           background: none;
         }
       }
@@ -100,6 +97,8 @@ $color-pp: #C8B5C8;
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        position: relative;
+        top: -5vh;
         >div{
           width: 90%;
           height: 30%;
@@ -107,9 +106,7 @@ $color-pp: #C8B5C8;
           font-size: small;
         }
       }
-
     }
-
   }
 
   .container2 {
@@ -128,6 +125,18 @@ $color-pp: #C8B5C8;
         width: $width100;
         height: 60%;
         background-color: $color-c4;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        >div{
+          width: 30px;
+          height: 30px;
+          background-color: #fff;
+          border-radius: 100%;
+          position: relative;
+          bottom: 2vw;
+          right: 2vw;
+        }
       }
 
       >div:nth-child(2) {
@@ -137,10 +146,13 @@ $color-pp: #C8B5C8;
         display: flex;
         flex-direction: column;
         align-items: $justify;
+        row-gap: 2vw;
 
         >div {
           width: 90%;
           color: $color-pp;
+          position: relative;
+          top: 2vh;
         }
 
         >div:nth-child(1) {
@@ -150,6 +162,33 @@ $color-pp: #C8B5C8;
         >div:nth-child(2) {
           color: $color-dg;
           font-size: small;
+        }
+        >div:nth-child(3){
+          >div:nth-child(2){
+            width: inherit;
+            height: 30vh;
+            position: relative;
+            top: 2vw;
+            ul{
+              display: grid;
+              align-items: center;
+              list-style-type: none;
+              grid-template-columns: 11vw 11vw 11vw;
+              column-gap: 2vw;
+              row-gap: 2vw;
+              li{
+                width: inherit;
+                height: 3rem;
+                background-color: #C8B5C8;
+                color: $color-fff;
+                border-radius: 100px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+          }
         }
       }
 
