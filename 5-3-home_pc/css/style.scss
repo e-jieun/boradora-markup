@@ -115,6 +115,8 @@ $color-pp: #C8B5C8;
     display: flex;
     justify-content: flex-start;
     column-gap: 0.5vw;
+    // !이 부분에서 
+    overflow: hidden;
 
     >div {
       // border: $border-bk;
