@@ -18,15 +18,30 @@
   height: 30vh;
 }
 
-#root .con header > div {
+#root .con header > div:nth-child(1) {
   width: inherit;
   height: 10%;
+  border: 1px solid red;
+}
+
+@media (min-width: 600px) {
+  #root .con header > div:nth-child(1) {
+    display: none;
+  }
 }
 
 #root .con header > div:nth-child(2) {
   width: inherit;
   height: 80%;
   background-color: #c4c4c4;
+}
+
+@media (min-width: 600px) {
+  #root .con header > div:nth-child(2) {
+    width: inherit;
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 #root .con header > div:nth-child(2) > div {
@@ -168,6 +183,13 @@
   position: relative;
 }
 
+@media (min-width: 600px) {
+  #root .con main > div:nth-child(1) > div {
+    position: absolute;
+    bottom: -25vh;
+  }
+}
+
 #root .con main > div:nth-child(1) > div > div {
   text-align: center;
   color: #8068AD;
@@ -176,6 +198,13 @@
 #root .con main > div:nth-child(1) > div > div:nth-child(3) {
   position: absolute;
   left: 10vw;
+}
+
+@media (min-width: 600px) {
+  #root .con main > div:nth-child(1) > div > div:nth-child(3) {
+    position: absolute;
+    top: -75vh;
+  }
 }
 
 #root .con main > div:nth-child(2) {
@@ -197,6 +226,19 @@
   row-gap: 5vw;
   position: relative;
   top: 20vh;
+}
+
+@media (min-width: 600px) {
+  #root .con main > div:nth-child(2) {
+    background-color: #fff;
+    width: 30vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    padding-top: 10vh;
+  }
 }
 
 #root .con main > div:nth-child(2) > div:nth-child(1) {
@@ -325,6 +367,13 @@
   left: 0;
 }
 
+@media (min-width: 600px) {
+  #root .con main > div:nth-child(3) {
+    position: fixed;
+    top: 78vh;
+  }
+}
+
 #root .con main > div:nth-child(3) > div {
   width: 70px;
   height: 70px;
@@ -385,6 +434,12 @@
   height: 10vh;
   position: fixed;
   bottom: 0;
+}
+
+@media (min-width: 600px) {
+  #root .con footer {
+    display: none;
+  }
 }
 
 #root .con footer ul {
