@@ -21,7 +21,6 @@
 #root .con header > div:nth-child(1) {
   width: inherit;
   height: 10%;
-  border: 1px solid red;
 }
 
 @media (min-width: 600px) {

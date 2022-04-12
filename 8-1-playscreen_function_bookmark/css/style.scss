@@ -49,7 +49,7 @@ $tablet: 600px;
       >div:nth-child(1){
         width: inherit;
         height: 10%;
-        @include border(1px, red);
+        // @include border(1px, red);
         @include tablet{
           display: none;
         }
