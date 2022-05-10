@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag select</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="root">
+    <header>
+      <button id="before">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.8042 4.32066C29.9264 4.44257 30.0234 4.58741 30.0895 4.74687C30.1557 4.90632 30.1898 5.07727 30.1898 5.2499C30.1898 5.42254 30.1557 5.59349 30.0895 5.75294C30.0234 5.9124 29.9264 6.05724 29.8042 6.17916L14.9808 20.9999L29.8042 35.8207C30.0506 36.0671 30.1891 36.4014 30.1891 36.7499C30.1891 37.0984 30.0506 37.4327 29.8042 37.6792C29.5577 37.9256 29.2234 38.0641 28.8749 38.0641C28.5264 38.0641 28.1921 37.9256 27.9457 37.6792L12.1957 21.9292C12.0734 21.8072 11.9765 21.6624 11.9103 21.5029C11.8441 21.3435 11.8101 21.1725 11.8101 20.9999C11.8101 20.8273 11.8441 20.6563 11.9103 20.4969C11.9765 20.3374 12.0734 20.1926 12.1957 20.0707L27.9457 4.32066C28.0676 4.19843 28.2124 4.10145 28.3719 4.03528C28.5313 3.96912 28.7023 3.93506 28.8749 3.93506C29.0475 3.93506 29.2185 3.96912 29.3779 4.03528C29.5374 4.10145 29.6822 4.19843 29.8042 4.32066Z" fill="#C8B5C8"/>
+        </svg>
+      </button>
+        <p>다음에 고를래요</p>
+    </header>
+    <main>
+      <div id="text-con">
+        <p>선호하는 태그</p>
+        <p>사용자님의 취향과 어울리는 태그를 골라주세요</p>
+      </div>
+      <div id="tag-con">
+        <ul>
+          <li>힐링되는</li>
+          <li>힐링되는</li>
+          <li>힐링되는</li>
+          <li>힐링되는</li>
+          <li>힐링되는</li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <button id="next">다음</button>
+    </footer>
+  </div>
+
+  <script>
+    // *
+    document.body.setAttribute('style', 'margin: 0; padding: 0;');
+    let colorObj = {
+      colorCr: 'rgba(255, 254, 249, 1)',
+      colorYl: 'rgba(237, 235, 178, 1)',
+      colorBp: 'rgba(200, 181, 200, 1)',
+      colorDp: 'rgba(128, 104, 173, 1)',
+      colorGr: 'rgba(196, 196, 196, 1)'
+    }
+    
+    // #root 식별
+    const root = document.getElementById('root');
+    console.log(root);
+    // root style
+    root.setAttribute('style', 'width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 5fr 1fr;');
+    root.style.background = colorObj.colorBp;
+    // console.dir(root.style);
+
+    // console.log(root.children);
+    const headerCon = root.children[0];
+    const mainCon = root.children[1];
+    const footerCon = root.children[2];
+    // console.log(headerCon);
+    // console.log(mainCon);
+    // console.log(footerCon);
+
+    // headerCon style
+    headerCon.setAttribute('style', 'display: flex; align-items: center; padding-left: 2vh;');
+
+    // mainCon style
+    mainCon.setAttribute('style', 'padding: 10vw; display: ;');
+
+  </script>s
+</body>
+</html>
