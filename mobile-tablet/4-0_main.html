@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main</title>
+</head>
+<body>
+  <div id="root">
+    <section id="header">
+      <!-- dropdown search -->
+      <div>logo</div>
+      <button>search</button>
+    </section>
+    <section id="main">
+      <div id="button-con">
+        <button>&lt;</button>
+        <button>&gt;</button>
+        <button>&gt;</button>
+      </div>
+      <div id="text-con">
+        <h1>선술집 바가지</h1>
+        <p>따뜻한 집밥같은 요리가 있는 이자카야, 가게 이름과는 전혀 다른 사람들의 안식처같은 선술집 바가지</p>
+        <ul>
+          <li>tag</li>
+          <li>tag</li>
+        </ul>
+      </div>
+      
+      <div id="menu-con">
+        <button>bookmark</button>
+        <button>home</button>
+        <button>profile</button>
+      </div>
+    </section>
+
+    <script>
+      // *
+      document.body.setAttribute('style',`margin: 0; padding: 0; box-sizing: border-box;`);
+
+      let colorObj = {
+        colorCr: 'rgba(255, 254, 249, 1)',
+        colorYl: 'rgba(237, 235, 178, 1)',
+        colorBp: 'rgba(200, 181, 200, 1)',
+        colorDp: 'rgba(128, 104, 173, 1)',
+        colorGr: 'rgba(196, 196, 196, 1)'
+      }
+      
+      // select root
+      const root = document.getElementById('root');
+      // root style
+      root.setAttribute('style',`width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 9fr;`)
+
+      // select #header
+      const headerCon = document.getElementById('header');
+      // headerCon style
+      headerCon.setAttribute('style',`border: 1px solid black; display: flex; justify-content: space-between; padding: 20px; align-items: center;`);
+
+      // select #main
+      const mainCon = document.getElementById('main');
+      mainCon.setAttribute('style',`width: 100vw; border: 1px solid black; display: grid; grid-template-rows: 4fr 2fr 1fr; align-items: center; justify-content: center;`);
+      console.log(mainCon);
+
+      // select #button-con
+      const buttonCon = document.getElementById('button-con');
+      console.log(buttonCon);
+      // buttonCon style
+      buttonCon.setAttribute('style',`width: 90vw; display: flex; justify-content: space-between; border: 1px solid black;`);
+
+      // select #text-con
+      const textCon = document.getElementById('text-con');
+      console.log(textCon);
+      // textCon style
+      textCon.setAttribute('style',`width: 90vw; border: 1px solid black; display: flex; flex-direction: column; align-items: center;`);
+      console.log(textCon.children);
+
+      // textCon.children
+      const title = textCon.children[0];
+      const drama = textCon.children[1];
+      const tagCon = textCon.children[2];
+      // textCon.children style
+      title.style.fontSize = '2rem';
+      drama.style.width = '50vw';
+      drama.style.textAlign = 'center';
+      tagCon.style.display = 'flex';
+      tagCon.style.justifyContent = 'space-around';
+      tagCon.style.listStyleType = 'none';
+
+      // tagCon.children
+      console.log(tagCon.children); //arr
+      for(let i = 0; i < tagCon.children.length; i++){
+        tagCon.children[i].setAttribute('style',`width: 8rem; background: ${colorObj.colorYl}; text-align: center; height: 1.5rem; padding-top: 10px; margin: 10px; border-radius: 50px; color: ${colorObj.colorDp};`);
+      }
+
+      // select #menu-con
+      const menuCon = document.getElementById('menu-con');
+      console.log(menuCon);
+      // menuCon style
+      menuCon.setAttribute('style',`width: 100vw; position: fixed; bottom: 5vh; display: flex; align-items: center; justify-content: center; column-gap: 1vh`);
+
+
+    </script>
+  </div>
+</body>
+</html>
