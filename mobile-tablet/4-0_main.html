@@ -14,6 +14,13 @@
       <button>search</button>
     </section>
     <section id="main">
+      <div id="slide-con">
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <section>5</section>
+      </div>
       <div id="button-con">
         <button>&lt;</button>
         <button>&gt;</button>
@@ -50,16 +57,16 @@
       // select root
       const root = document.getElementById('root');
       // root style
-      root.setAttribute('style',`width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 9fr;`)
+      root.setAttribute('style',`width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 9fr;`);
 
       // select #header
       const headerCon = document.getElementById('header');
       // headerCon style
-      headerCon.setAttribute('style',`border: 1px solid black; display: flex; justify-content: space-between; padding: 20px; align-items: center;`);
+      headerCon.setAttribute('style',`border: 1px solid black; display: flex; justify-content: space-between; padding: 20px; align-items: center; background: ${colorObj.colorYl};`);
 
       // select #main
       const mainCon = document.getElementById('main');
-      mainCon.setAttribute('style',`width: 100vw; border: 1px solid black; display: grid; grid-template-rows: 4fr 2fr 1fr; align-items: center; justify-content: center;`);
+      mainCon.setAttribute('style',`width: 100vw; border: 1px solid black; display: grid; grid-template-rows: 4fr 2fr 1fr; align-items: center; justify-content: center; overflow: hidden;`);
       console.log(mainCon);
 
       // select #button-con
@@ -67,6 +74,9 @@
       console.log(buttonCon);
       // buttonCon style
       buttonCon.setAttribute('style',`width: 90vw; display: flex; justify-content: space-between; border: 1px solid black;`);
+
+      // buttonCon.children
+      const buttonItem = buttonCon.children;
 
       // select #text-con
       const textCon = document.getElementById('text-con');
@@ -99,8 +109,89 @@
       // menuCon style
       menuCon.setAttribute('style',`width: 100vw; position: fixed; bottom: 5vh; display: flex; align-items: center; justify-content: center; column-gap: 1vh`);
 
+    // --------------------------------------
+    
+    // slide 효과를 넣는다
+    // 배경에 슬라이드 넣기
+    // 1. 슬라이드 컨테이너를 배경에 위치시킨다 0
+    // 2. 슬라이드 아이템을 배열이니까 컨테이너의 0 자식요소로 불러온다
+    // 3. 이미지로 들어갈 배열을 선언(우선 색깔을 넣어주자) 0
+    // 4. 한 섹션마다 이미지를 넣어준다 0
+    // 5. 클릭이벤트를 달아준다
+    // 6. 클릭하면 위치가 이동하는 부분을 주면 좋을 것
 
+    // 1.
+    const slideCon = document.getElementById('slide-con');
+    console.log(slideCon);
+    // slideCon style
+    slideCon.setAttribute('style',`min-width: 100vw; height: 100vh; display: flex; position: absolute;z-index: -1; background: #c4c4c4; top: 0;`);
+
+    // console.log(slideCon.children);
+    const slideChild = slideCon.children;
+    console.log(slideChild);
+
+    // 우선 구분해줄 배경색 배열
+    let colorArr = ['#414141', '#c4c4c4', '#e3e3e3', '#e5e5e5', 'yellow'];
+    // slideChild style
+    for(let i = 0; i < slideChild.length; i++){
+      slideChild[i].setAttribute('style', `width: 100vw; height: 100vh; border: 1px solid red; background: ${colorArr[i]}; min-width: 100vw;`);
+    }
+
+    // console.log(buttonCon.children);
+    // select buttonCon.children[2]
+    const leftBtn = buttonCon.lastElementChild;
+    console.log(leftBtn);
+
+    let widthValue = 0;
+    let index = 0;
+    // 이 부분은 왼쪽 버튼
+    // // leftBtn click event
+    // leftBtn.addEventListener('click', ()=>{
+    //   // console.log('왼쪽으로 이전 이미지가 넘어가는 인터랙션을 주시오');
+    //   console.dir(slideChild[0]); //offsetWidth: 531;
+
+    //   // 넓이 기준점을 0-클릭수만큼 곱해주고
+    //   widthValue = slideChild[0].offsetWidth*index;
+    //   index++;
+      
+    //   // 우선 슬라이드 효과는 줄 수 있다
+    //   for(let i = 0; i < slideChild.length; i++){
+    //     console.log(widthValue);
+    //     slideChild[i].style.position = 'relative';
+    //     slideChild[i].style.left = `-${widthValue}px`;
+    //     slideChild[i].style.transition = '2s';
+    //   }
+
+    //   // 다시 돌아가는 버튼(버튼컨의 첫 칠드런)에 이벤트를 누르면 다시 앞의 컨텐츠로 돌아가는 효과를 줘야 한다 
+      
+    // });
+
+    // select rightBtn
+    const rightBtn = buttonCon.children[0];
+    console.log(rightBtn);
+    // rightBtn click event
+    rightBtn.addEventListener('click', ()=>{
+      // console.log('rightbtn');
+      
+      // 계속해서 앞으로 옮겨줄 수 있도록 구성해야한다
+      widthValue = (slideChild[slideChild.length-1].offsetWidth)-slideChild[0].offsetWidth*index;
+      index++;
+      // console.log(widthValue);
+      console.log(index);
+
+      // TODO: 5개의 자식요소밖에 없어서 widthValue가 어느 길이 이상이 되면 아마도 자식요소를 부여해줘야 하지 않을까?
+      for(let i = 0; i < slideChild.length; i++){
+        console.log(widthValue);
+        slideChild[i].style.position = 'relative';
+        slideChild[i].style.right = `${widthValue}`;
+        slideChild[i].style.transition = '2s';
+      }
+
+    })
+    
+    
     </script>
+
   </div>
 </body>
 </html>
