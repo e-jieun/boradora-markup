@@ -10,8 +10,9 @@
     .itemstyle{
       width: 100vw;
       height: 20vmax;
-      background-color: rgba(200, 181, 200, 1);
+      background-color: rgba(128, 104, 173, 1);
       border: 1px solid #fff;
+      text-align: center;
     }
   </style>
 </head>
@@ -29,7 +30,67 @@
       <div></div>
       <div></div>
     </section>
-
+    <div id="menu-con">
+      <button>
+        <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.5 82.69">
+          <defs>
+            <style>
+              .d {
+                fill: none;
+                stroke: #edebb2ff;
+                stroke-miterlimit: 10;
+              }
+            </style>
+          </defs>
+          <g id="a" />
+          <g id="b">
+            <g id="c">
+              <polygon class="d" points=".5 .5 .5 81.67 28.5 63.5 52 81.67 52 .5 .5 .5" />
+            </g>
+          </g>
+        </svg>
+      </button>
+      <button>
+        <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.5 77.65">
+          <defs>
+            <style>
+              .d {
+                fill: none;
+                stroke: #edebb2ff;
+                stroke-miterlimit: 10;
+              }
+            </style>
+          </defs>
+          <g id="a" />
+          <g id="b">
+            <g id="c">
+              <path class="d"
+                d="M31.91,2.51L2.94,28.77c-1.56,1.41-2.44,3.39-2.44,5.46v35.46c0,4.13,3.45,7.47,7.69,7.46l57.15-.13c4.23,0,7.66-3.35,7.66-7.46V34.17c0-2.04-.86-3.98-2.37-5.39L42.45,2.57c-2.94-2.73-7.56-2.76-10.54-.06Z" />
+            </g>
+          </g>
+        </svg>
+      </button>
+      <button>
+        <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.5 75.35">
+          <defs>
+            <style>
+              .d {
+                fill: none;
+                stroke: #edebb2ff;
+                stroke-miterlimit: 10;
+              }
+            </style>
+          </defs>
+          <g id="a" />
+          <g id="b">
+            <g id="c">
+              <path class="d"
+                d="M43.85,52.28c13.64,0,25.23,8.89,29.53,21.29,7.79-7.74,12.62-18.47,12.62-30.32C86,19.64,66.86,.5,43.25,.5S.5,19.64,.5,43.25c0,12.31,5.21,23.4,13.54,31.2,4.04-12.86,15.86-22.16,29.82-22.16Zm.6-36.13c7.65,0,13.85,6.2,13.85,13.85s-6.2,13.85-13.85,13.85-13.85-6.2-13.85-13.85,6.2-13.85,13.85-13.85Z" />
+            </g>
+          </g>
+        </svg>
+      </button>
+    </div>
     <script>
       // *
       document.body.setAttribute('style', `margin: 0; padding: 0;`);
@@ -71,10 +132,9 @@
       // select #item-con
       const itemCon = document.getElementById('item-con');
       // itemCon style
-      itemCon.setAttribute('style',`width: inherit;`);
+      itemCon.setAttribute('style',`width: inherit; display: flex; flex-direction: column;`);
 
-   
-      // 스크롤 하면 계속 생길 부분
+      // html에 작성한 자식요소 아래에 덧붙여 줄 자식요소 생성
       // itemCon.appendChild();
       // 1. window wheel event
       // 2. if(window.srollY > window.innerHeight){}
@@ -87,30 +147,60 @@
         console.log('this is additem function');
         let addItem = document.createElement('div');
         addItem.classList.add('itemstyle');
+        // ?itemCon.children[i]에 텍스트를 넣어줄 부분
+        // !innerHTML로 엘리먼트 노드와 텍스트 노드를 문자열로 넣어줘서 해결했다
+        addItem.innerHTML += '<p>lorem ipsum</p><div><div></div></div>';
+        addItem.setAttribute('style',`display: flex; justify-content: center; align-items: center;`);
+        // 제목 텍스트
+        addItem.firstElementChild.style.color = '#fff';
+        // 재생버튼 동그라미
+        addItem.lastElementChild.setAttribute('style',`width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background: ${colorObj.colorCr}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
+        // 재생버튼 세모
+        addItem.lastElementChild.firstElementChild.setAttribute('style',`width: 0; height: 0; border-bottom: ${hun/10*1}px solid transparent; border-top: ${hun/10*1}px solid transparent; border-left: ${hun/10*2}px solid ${colorObj.colorBp}; border-right: ${hun/10*2}px solid transparent; position: relative; left: ${hun/80}vmax;`);
         itemCon.appendChild(addItem);
-        // 4. itemCon.children[i]에 텍스트를 넣어줄 부분
-        for(let i = 0; i < itemCon.children.length; i++){
-          if(itemCon.children.length === wheelValue){
-            for(let i = 0; i < 1; i++){
-              let addText = document.createElement('p');
-              addText.textContent = 'lorem ipsum';
-              itemCon.children[i].appendChild(addText);
-            }
-          }
-        }
-
         // 휠 값이 hun/2이 넘으면 휠 이벤트에 실행되는 callback function를 지워줄 부분
         if(wheelValue >= hun/2){
           window.removeEventListener('wheel',addItemFunction);
         }
       }
     
+      // html에 작성한 자식요소
       // itemCon.children style
       console.log(itemCon.children);
       for(let i = 0; i < itemCon.children.length; i++){
         let itemChild = itemCon.children[i];
         itemChild.classList.add('itemstyle');
+        itemChild.innerHTML = '<p>lorem ipsum</p><div><div></div></div>';
+        itemChild.setAttribute('style',`display: flex; justify-content: center; align-items: center;`)
+        // 제목 텍스트
+        itemChild.firstElementChild.style.color = '#fff';
+        // 재생버튼 동그라미
+        itemChild.lastElementChild.setAttribute('style',`width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background: ${colorObj.colorCr}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
+        // 재생버튼 세모
+        itemChild.lastElementChild.firstElementChild.setAttribute('style',`width: 0; height: 0; border-bottom: ${hun/10*1}px solid transparent; border-top: ${hun/10*1}px solid transparent; border-left: ${hun/10*2}px solid ${colorObj.colorBp}; border-right: ${hun/10*2}px solid transparent; position: relative; left: ${hun/80}vmax;`);
       }
+
+      // select #menu-con
+      const menuCon = document.getElementById('menu-con');
+      console.log(menuCon);
+      // menuCon style
+      menuCon.setAttribute('style', `width: 100vw; position: fixed; bottom: 3vh; display: flex; align-items: center; justify-content: center; column-gap: 1vh;`);
+
+      // select menuCon.children
+      const menuChild = menuCon.children;
+      console.log(menuChild);
+      // menuChild style
+      for (let i = 0; i < menuChild.length; i++) {
+        menuChild[i].setAttribute('style', `width: 80px; height: 80px; background: none; border: 0px; justify-content: center;`);
+        console.log(menuChild[i].children);
+        menuChild[i].children[0].setAttribute('style', 'width: 40px; height: 40px; stroke-width: 3px;');
+        // => stroke-width로 svg 이미지의 두꼐가 조절이 가능하다
+      }
+      // select menuChild[1]
+      let homeBtn = menuChild[1];
+      // console.log(homeBtn);
+      homeBtn.style.background = `${colorObj.colorBp}`;
+      homeBtn.style.borderRadius = '50%';
     </script>
   </div>
 </body>
