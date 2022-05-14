@@ -1,45 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>search</title>
+  <style>
+    .itemstyle{
+      width: 100vw;
+      height: 20vmax;
+      background-color: rgba(200, 181, 200, 1);
+      border: 1px solid #fff;
+    }
+  </style>
 </head>
+
 <body>
   <div id="root">
     <section id="keyword-con">
-      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.8042 4.32066C29.9264 4.44257 30.0234 4.58741 30.0895 4.74687C30.1557 4.90632 30.1898 5.07727 30.1898 5.2499C30.1898 5.42254 30.1557 5.59349 30.0895 5.75294C30.0234 5.9124 29.9264 6.05724 29.8042 6.17916L14.9808 20.9999L29.8042 35.8207C30.0506 36.0671 30.1891 36.4014 30.1891 36.7499C30.1891 37.0984 30.0506 37.4327 29.8042 37.6792C29.5577 37.9256 29.2234 38.0641 28.8749 38.0641C28.5264 38.0641 28.1921 37.9256 27.9457 37.6792L12.1957 21.9292C12.0734 21.8072 11.9765 21.6624 11.9103 21.5029C11.8441 21.3435 11.8101 21.1725 11.8101 20.9999C11.8101 20.8273 11.8441 20.6563 11.9103 20.4969C11.9765 20.3374 12.0734 20.1926 12.1957 20.0707L27.9457 4.32066C28.0676 4.19843 28.2124 4.10145 28.3719 4.03528C28.5313 3.96912 28.7023 3.93506 28.8749 3.93506C29.0475 3.93506 29.2185 3.96912 29.3779 4.03528C29.5374 4.10145 29.6822 4.19843 29.8042 4.32066Z" fill="#C8B5C8"/>
-      </svg>
-      <div>검색결과</div>
+      <img src="./SVG/chevron.svg" alt="before">
+      <div>loremipsum에 대한 검색결과</div>
     </section>
     <section id="item-con">
-      
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </section>
-    
+
     <script>
+      // *
+      document.body.setAttribute('style', `margin: 0; padding: 0;`);
+
+      // colorObj
+      let colorObj = {
+        colorCr: 'rgba(255, 254, 249, 1)',
+        colorYl: 'rgba(237, 235, 178, 1)',
+        colorBp: 'rgba(200, 181, 200, 1)',
+        colorDp: 'rgba(128, 104, 173, 1)',
+        colorGr: 'rgba(196, 196, 196, 1)'
+      };
+      // variable declaration
+      let hun = 100;
+
       // select root
       const root = document.getElementById('root');
       console.log(root);
       // root style
-      root.setAttribute('style',`width: 100vw;`);
+      root.setAttribute('style', `width: 100vw; display: flex; justify-content: flex-start; flex-direction: column;`);
 
-      // 
-      const section = document.getElementsByTagName('section');
-      console.log(section);
-      // 
-      const keywordCon = section[0];
+      // select #keyword-con
+      const keywordCon = document.getElementById('keyword-con');
+      console.log(keywordCon);
       // keywordCon style
-      keywordCon.style.display = 'flex';
-      keywordCon.style.alignItems = 'center';
-      keywordCon.style.justifyContent = 'center';
+      keywordCon.setAttribute('style', `width: inherit; height: 10vmax; display: grid; grid-template-columns: 1fr 9fr; align-items: center;`);
+      // keywordCon.style.border = '1px solid black';
 
+      // select keywordCon.children
+      // console.log(keywordCon.children);
+      const beforeBtn = keywordCon.firstElementChild;
+      const resultText = keywordCon.lastElementChild;
+      console.log(beforeBtn);
+      console.log(resultText);
+      // keywordCon.children style
+      resultText.style.textAlign = 'center';
+      resultText.style.color = `${colorObj.colorDp}`;
 
-      const itemCon = section[1];
-      
-      
+      // select #item-con
+      const itemCon = document.getElementById('item-con');
+      // itemCon style
+      itemCon.setAttribute('style',`width: inherit;`);
+
+   
+      // 스크롤 하면 계속 생길 부분
+      // itemCon.appendChild();
+      // 1. window wheel event
+      // 2. if(window.srollY > window.innerHeight){}
+      // 3. appendChild()
+      let wheelValue = 0;
+      window.addEventListener('wheel',addItemFunction);
+      // wheel event가 시작되면 실행될 callback function
+      function addItemFunction(){
+        wheelValue++;
+        console.log('this is additem function');
+        let addItem = document.createElement('div');
+        addItem.classList.add('itemstyle');
+        itemCon.appendChild(addItem);
+        // 4. itemCon.children[i]에 텍스트를 넣어줄 부분
+        for(let i = 0; i < itemCon.children.length; i++){
+          if(itemCon.children.length === wheelValue){
+            for(let i = 0; i < 1; i++){
+              let addText = document.createElement('p');
+              addText.textContent = 'lorem ipsum';
+              itemCon.children[i].appendChild(addText);
+            }
+          }
+        }
+
+        // 휠 값이 hun/2이 넘으면 휠 이벤트에 실행되는 callback function를 지워줄 부분
+        if(wheelValue >= hun/2){
+          window.removeEventListener('wheel',addItemFunction);
+        }
+      }
+    
+      // itemCon.children style
+      console.log(itemCon.children);
+      for(let i = 0; i < itemCon.children.length; i++){
+        let itemChild = itemCon.children[i];
+        itemChild.classList.add('itemstyle');
+      }
     </script>
   </div>
 </body>
+
 </html>
