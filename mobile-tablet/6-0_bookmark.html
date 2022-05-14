@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>search</title>
+  <style>
+    .itemstyle{
+      width: 100vw;
+      height: 20vmax;
+      background-color: rgba(200, 181, 200, 1);
+      border: 1px solid #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <section id="keyword-con">
+      <img src="./SVG/chevron.svg" alt="before">
+      <div>사용자 님이 북마크한 도라마</div>
+    </section>
+    <section id="item-con">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+
+    <script>
+      // *
+      document.body.setAttribute('style', `margin: 0; padding: 0;`);
+
+      // colorObj
+      let colorObj = {
+        colorCr: 'rgba(255, 254, 249, 1)',
+        colorYl: 'rgba(237, 235, 178, 1)',
+        colorBp: 'rgba(200, 181, 200, 1)',
+        colorDp: 'rgba(128, 104, 173, 1)',
+        colorGr: 'rgba(196, 196, 196, 1)'
+      };
+      // variable declaration
+      let hun = 100;
+
+      // select root
+      const root = document.getElementById('root');
+      console.log(root);
+      // root style
+      root.setAttribute('style', `width: 100vw; display: flex; justify-content: flex-start; flex-direction: column;`);
+
+      // select #keyword-con
+      const keywordCon = document.getElementById('keyword-con');
+      console.log(keywordCon);
+      // keywordCon style
+      keywordCon.setAttribute('style', `width: inherit; height: 10vmax; display: grid; grid-template-columns: 1fr 9fr; align-items: center;`);
+      // keywordCon.style.border = '1px solid black';
+
+      // select keywordCon.children
+      // console.log(keywordCon.children);
+      const beforeBtn = keywordCon.firstElementChild;
+      const resultText = keywordCon.lastElementChild;
+      console.log(beforeBtn);
+      console.log(resultText);
+      // keywordCon.children style
+      resultText.style.textAlign = 'center';
+      resultText.style.color = `${colorObj.colorDp}`;
+
+      // select #item-con
+      const itemCon = document.getElementById('item-con');
+      // itemCon style
+      itemCon.setAttribute('style',`width: inherit;`);
+
+   
+      // 스크롤 하면 계속 생길 부분
+      // itemCon.appendChild();
+      // 1. window wheel event
+      // 2. if(window.srollY > window.innerHeight){}
+      // 3. appendChild()
+      let wheelValue = 0;
+      window.addEventListener('wheel',addItemFunction);
+      // wheel event가 시작되면 실행될 callback function
+      function addItemFunction(){
+        wheelValue++;
+        console.log('this is additem function');
+        let addItem = document.createElement('div');
+        addItem.classList.add('itemstyle');
+        itemCon.appendChild(addItem);
+        // 4. itemCon.children[i]에 텍스트를 넣어줄 부분
+        for(let i = 0; i < itemCon.children.length; i++){
+          if(itemCon.children.length === wheelValue){
+            for(let i = 0; i < 1; i++){
+              let addText = document.createElement('p');
+              addText.textContent = 'lorem ipsum';
+              itemCon.children[i].appendChild(addText);
+            }
+          }
+        }
+
+        // 휠 값이 hun/2이 넘으면 휠 이벤트에 실행되는 callback function를 지워줄 부분
+        if(wheelValue >= hun/2){
+          window.removeEventListener('wheel',addItemFunction);
+        }
+      }
+    
+      // itemCon.children style
+      console.log(itemCon.children);
+      for(let i = 0; i < itemCon.children.length; i++){
+        let itemChild = itemCon.children[i];
+        itemChild.classList.add('itemstyle');
+      }
+    </script>
+  </div>
+</body>
+
+</html>
