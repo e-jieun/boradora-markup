@@ -1,0 +1,181 @@
+// common
+*{
+  margin: 0;
+  padding: 0;
+}
+//variable
+$color-bk: black;
+$color-c4: #c4c4c4;
+$color-dp: #8068AD;
+$color-pp: #C8B5C8;
+$color-yel: #EDEBB2;
+$color-cr: #FFFEF9;
+$border-bk: 1px solid black;
+$border-red: 1px solid red;
+$per100: 100%;
+//class-set
+@mixin flex-align-justify($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin border($px, $color) {
+  border: $px solid $color;
+}
+@mixin width-height($width, $height){
+  width: $width;
+  height: $height;
+  @include flex-align-justify(center, flex-start);
+  flex-direction: column;
+}
+//style
+#root{
+  @include width-height(100vw, 100vh);
+  #con{
+    @include width-height($per100, $per100);
+    row-gap: 2vh;
+    position: relative;
+    top: 10vh;
+    color: $color-dp;
+    main{
+      width: inherit;
+      flex-grow: 1;
+      // @include border(1px, green);
+      @include flex-align-justify(center, center);
+      flex-direction: column;
+      row-gap: 2vh;
+      >div:nth-child(1){
+        @include width-height(inherit, inherit);
+        row-gap: 2vh;
+        >div:nth-child(1){
+          @include width-height(30vw, 30vw);
+          background-color: $color-c4;
+          border-radius: $per100;
+        }
+        >div:nth-child(2){
+          font-size: 1.5rem;
+        }
+      }
+      >div:nth-child(2){
+        @include flex-align-justify(center, center);
+        flex-direction: column;
+        row-gap: 2vh;
+        >div:nth-child(1){
+          @include flex-align-justify(center, center);
+          column-gap: 1em;
+        }
+        >div:nth-child(2){
+          @include width-height(70vw, 3em);
+          background-color: $color-dp;
+          color: $color-cr;
+          border-radius: 30px;
+          @include flex-align-justify(center, center);
+        }
+      }
+    }
+    section{
+      width: inherit;
+      flex-grow: 2;
+      @include flex-align-justify(center, center);
+      flex-direction: column;
+      row-gap: 2vh;
+      >div{
+        flex-grow: 1;
+        width: 80%;
+        // @include border(1px, green);
+        @include flex-align-justify(center, center);
+        flex-direction: column;
+        >div{
+          flex-grow: 1;
+        }
+        >div:nth-child(1){
+          position: relative;
+          top: 5vw;
+          span{
+            font-weight: 700;
+          }
+        }
+        >div:nth-child(2){
+          width: $per100;
+          @include flex-align-justify(center, center);
+          flex-direction: column;
+          position: relative;
+          top: 10vw;
+          div{
+            background-color: $color-c4;
+            border-radius: 10px;
+            // @include border(1px, #000);
+          }
+          div:nth-child(1){
+            width: 50vw;
+            height: 30vw;
+            position: relative;
+          }
+          div:nth-child(2){
+            width: 40vw;
+            height: 20vw;
+            position: relative;
+            z-index: -1;
+            top: -16vw;
+            filter: blur(1px);
+            opacity: 0.9;
+          }
+          div:nth-child(3){
+            width: 30vw;
+            height: 10vw;
+            position: relative;
+            z-index: -2;
+            top: -22vw;
+            filter: blur(2px);
+            opacity: 0.6;
+          }
+        }
+        >div:nth-child(3){
+          width: 25vw;
+          height: 2.5rem;
+          background-color: $color-c4;
+          border-radius: 30px;
+          column-gap: 2vw;
+          @include flex-align-justify(center, center);
+          background-color: $color-pp;
+          position: relative;
+          top: -8vw;
+          div,i{
+            color: $color-dp;
+          }
+        }
+      }
+      div:nth-child(3){
+        height: 12vh;
+      }
+    }
+    nav{
+      width: inherit;
+          height: 10vh;
+          position: fixed;
+          bottom: 0;
+          ul{
+            width: inherit;
+            height: inherit;
+            list-style-type: none;
+            @include flex-align-justify(center, space-around);
+            li{
+              height: inherit;
+              flex-grow: 1;
+              background-color: $color-yel;
+              // @include border(1px, #fff);
+              @include flex-align-justify(center, center);
+              &:hover{
+                background-color: $color-pp;
+                transition: 1s;
+              } 
+              i{
+                color: $color-dp;
+                // !글자처럼 아이콘도 font-size로 지정해줘야 함
+                font-size: 2em;
+              }
+            }
+          }
+    }
+  }
+}

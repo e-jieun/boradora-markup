@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button data-clickedtag="0">tag</button>
+    <button data-clickedtag="1">tag</button>
+    <button data-clickedtag="2">tag</button>
+    <button data-clickedtag="3">tag</button>
+    <button data-clickedtag="4">tag</button>
+  </div>
+  <button>more</button>
+
+  <script>
+    const root = document.querySelector('#root');
+    const clickBtn = document.getElementsByTagName('button');
+    console.log(clickBtn);
+    root.style.display = 'grid';
+    root.style.width = '100px';
+
+    const moreBtn = document.querySelector('button');
+    console.log(moreBtn);
+    
+    // moreBtn을 클릭하면 똑같이 복사되는 이벤트를 만들어 준다
+    // !태그를 선택을 하나하나 해줘야하고, 글씨도 다 다르게 해줘야해서 appendChild()안에 넣을 텍스트를 배열로 담아둔 다음에 입력해주면 좋겠음
+    // !cloneNode는 dataset까지 한꺼번에 복사가 되버려서 한번에 선택이 되고 텍스트 노드도 똑같이 복제가 되서 원하는 인터랙션이 안 나옴
+    moreBtn.addEventListener('click', function(){
+      console.log('cl');
+      // let clone = document.body.cloneNode(root);
+      // body.append(clone);
+    });
+
+    // 클릭 이벤트가 작동하지 않았을 때도 클릭하지 않은 button의 style과 똑같이 와야한다
+    for(let i = 0; i < clickBtn.length; i++){
+      clickBtn[i].setAttribute('style','background: yellow; color: purple; border: 0px;');
+    }
+    
+    root.addEventListener('click', event => {
+      for(let i = 0; i < clickBtn.length; i++){
+        console.log(event.target.dataset);
+        let clickedtagValue = event.target.dataset.clickedtag;
+        // console.log(clickedtagValue);
+        // 뭘 비교해줘야 할까? => 클릭한 값과 반복문의 clickBtn의 dataset.clickedtag에 들어있응 값을 비교해주면 되지 않을까?
+        if(clickBtn[i].dataset.clickedtag === clickedtagValue){
+          // console.log(clickBtn[i].dataset);
+          // 이 부분에 클릭한 button style이 와야한다
+          clickBtn[i].setAttribute('style','background: purple; color: #fff;border: 0px;');
+        } else{
+          // console.log(clickBtn[i].dataset);
+          // console.log('click하지 않은 태그다');
+
+          // 이 부분에 클릭하지 않았을 떄의 button style이 와야 한다
+          clickBtn[i].setAttribute('style','background: yellow; color: purple;border: 0px;');
+        }
+
+      }
+    });
+    
+  </script>
+</body>
+</html>
