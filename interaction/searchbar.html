@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button id="search">
+    </button>
+      <div id="con">
+        <div data-list="1">1</div>
+        <div data-list="1">2</div>
+        <div data-list="1">3</div>
+      </div>
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    console.log(root);
+    const search = document.getElementById('search');
+    console.log(search);
+    const con = document.getElementById('con');
+    console.log(con);
+
+    con.style.display = 'none';
+
+    let isClick = true;
+    search.addEventListener('click', function(){
+      console.log('click');
+      if(isClick === true){
+        con.style.display = 'block';
+        isClick = false;
+      } else{
+        con.style.display = 'none';
+        isClick = true;
+      }
+      // con.style.display = 
+      
+    });
+  </script>
+</body>
+</html>
