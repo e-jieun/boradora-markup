@@ -1,0 +1,11 @@
+.itemstyle{
+  width: 100vw;
+  height: 20vmax;
+  /* background-color: rgba(128, 104, 173, 0.5); */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: 1px solid #fff;
+  text-align: center;
+}
