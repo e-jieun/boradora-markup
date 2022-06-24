@@ -25,6 +25,8 @@ console.log(resultText);
 // keywordCon.children style
 resultText.style.textAlign = 'center';
 resultText.style.color = `${colorObj.colorDp}`;
+resultText.style.position = `relative`;
+resultText.style.right = `2vh`;
 // select #item-con
 const itemCon = document.getElementById('item-con');
 // itemCon style
@@ -58,10 +60,8 @@ function addItemFunction() {
   // 재생버튼 동그라미
   // todo: 아이콘 위치 조정
   const playBtnCon = addItem.lastElementChild;
-  playBtnCon.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background: ${colorObj.colorCr}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
+  playBtnCon.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background-color: ${colorObj.colorDp}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
   // 재생버튼 세모
-  // todo: 세모 지우고 아이콘으로 이미지 태그로 연결하기
-  // todo: div => img 태그로 대체해줄 것
   const chevronItem = addItem.lastElementChild.firstElementChild;
   chevronItem.src = './SVG/chevron.svg';
   chevronItem.style.transform = 'rotate(180deg)';
@@ -88,7 +88,7 @@ for (let i = 0; i < itemCon.children.length; i++) {
   itemChild.firstElementChild.style.color = '#fff';
   // 재생버튼 동그라미
   // const 
-  itemChild.lastElementChild.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background: ${colorObj.colorCr}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
+  itemChild.lastElementChild.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background: ${colorObj.colorDp}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
   // 재생버튼 세모
   // todo: 세모 => 아이콘으로 변경해주기
   const currentChevronItem = itemChild.lastElementChild.firstElementChild;
