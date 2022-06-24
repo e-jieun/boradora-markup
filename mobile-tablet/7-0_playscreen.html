@@ -6,16 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>playscreen</title>
-  <style>
-    .flex-center-center{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .none{
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/class-set.css">
 </head>
 
 <body>
@@ -27,84 +18,7 @@
     </section>
   </div>
 
-  <script>
-    // *
-    document.body.setAttribute('style',`margin: 0; padding: 0;`);
-    // variable declaration
-    let colorObj = {
-      colorCr: 'rgba(255, 254, 249, 1)',
-      colorYl: 'rgba(237, 235, 178, 1)',
-      colorBp: 'rgba(200, 181, 200, 1)',
-      colorDp: 'rgba(128, 104, 173, 1)',
-      colorGr: 'rgba(196, 196, 196, 1)'
-    };
-    let hun = 100;
-
-    // get #root, #menu-con, #screen-con
-    const root = document.getElementById('root');
-    const menuCon = root.firstElementChild;
-    const screenCon = root.lastElementChild;
-    console.log(root);
-    console.log(menuCon);
-    console.log(screenCon);
-    // root style
-    root.setAttribute('style', `width: ${hun}vw; height: ${hun}vh; background: ${colorObj.colorGr}`);
-
-    // screenCon style
-    screenCon.setAttribute('style',`width: inherit; height: ${hun/4}vh; position: fixed; bottom: 0; display: grid; grid-template-rows: 2fr 1fr; background: rgba(255, 254, 249, 0.2);`);
-    
-    // screenCon.children
-    const subtitleCon = screenCon.firstElementChild;
-    const playmenuCon = screenCon.lastElementChild;
-    console.log(subtitleCon);
-    console.log(playmenuCon);
-    
-    // subtitleCon style
-    // 자막 두 개를 만들어 줄 부분
-    // subtitleCon.innerHTML = '<p>こんにちは。</p><p>안녕하세요.</p>';
-    subtitleCon.setAttribute('style',`display: grid; align-items: center; justify-content: center;`);
-    for(let i = 0; i < 2; i++){
-      let subtitleItem = document.createElement('p');
-      subtitleCon.appendChild(subtitleItem);
-    }
-    subtitleCon.firstElementChild.textContent = 'こんにちは。';
-    subtitleCon.lastElementChild.textContent = '안녕하세요.';
-    // playmenuCon style
-    playmenuCon.setAttribute('style',`display: grid; grid-template-rows: 1fr 3fr;`);
-    for(let i = 0; i < 2; i++){
-      let playmenuItemCon = document.createElement('div');
-      playmenuCon.appendChild(playmenuItemCon);
-    }
-    // playmenuCon.children style
-    playmenuCon.firstElementChild.style.background = `${colorObj.colorCr}`;
-    playmenuCon.lastElementChild.style.background = `${colorObj.colorDp}`;
-    playmenuCon.lastElementChild.innerHTML = `<div>play</div><div>MENU</div>`;
-    playmenuCon.lastElementChild.setAttribute('style',`display: grid; grid-template-columns: 9fr 1fr; background: ${colorObj.colorDp};`);
-    // menuBtn style
-    let menuBtn = playmenuCon.lastElementChild.lastElementChild;
-    // console.log(menuBtn);
-    menuBtn.style.background = `${colorObj.colorYl}`;
-    menuBtn.style.color = `${colorObj.colorDp}`;
-    if(!menuBtn.classList.contains('flex-center-center')){
-      menuBtn.classList.add('flex-center-center');
-    }
-
-    // TODO: 메뉴 클릭 이벤트
-
-    // playBtnCon style
-    let playBtnCon = playmenuCon.lastElementChild.firstElementChild;
-    console.log(playBtnCon);
-    // let playBtnItemArr = ['-10초','play','+10초'];
-    playBtnCon.innerHTML = '<div>-10초</div><div></div><div>+10초</div>'
-    if(!playBtnCon.classList.contains('flex-center-center')){
-      playBtnCon.classList.add('flex-center-center');
-    }
-    playBtnCon.style.justifyContent = 'space-evenly';
-    playBtnCon.style.color = `${colorObj.colorYl}`;
-    playBtnCon.children[1].setAttribute('style',`width: 0; height: 0; border-top: 20px transparent;border-bottom: ${hun/10*1}px solid transparent; border-top: ${hun/10*1}px solid transparent; border-left: ${hun/10*2}px solid ${colorObj.colorYl}; border-right: ${hun/10*2}px solid transparent;`)
-
-
-  </script>
+  <script type="module" src="./js/7-0-playscreen.js"></script>
 
 </body>
 
