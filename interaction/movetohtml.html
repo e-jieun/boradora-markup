@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>index2.html 파일로 이동하도록 하는 방법</p>
+  <button>move to index2.html</button>
+</body>
+
+<script type="text/javascript">
+  
+  let linkIndexTwo = 'movinghtml.html';
+
+  function hrefLink(link){
+    location.href = link;
+  }
+
+  const btn = document.querySelector('button');
+  console.log(btn);
+
+  btn.addEventListener('click', function(){
+    console.log(this);
+    hrefLink(linkIndexTwo);
+  });
+
+</script>
+</html>
