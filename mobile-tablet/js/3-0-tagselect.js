@@ -104,3 +104,4 @@ const before = document.getElementById('before');
 console.log(before);
 // *button#before style
 before.setAttribute('style', `background: none; border: none;`);
+before.classList.toggle('before-position');
