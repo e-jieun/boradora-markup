@@ -5,7 +5,12 @@ const colorObj = {
   colorDp: 'rgba(128, 104, 173, 1)',
   colorGr: 'rgba(196, 196, 196, 1)',
   colorGp: 'rgba(100,50,138,1.0)',
+<<<<<<< HEAD
   colorFf: 'rgba(255,255,255,1.0)'
+=======
+  colorFf: 'rgba(255,255,255,1.0)',
+  colorPp: 'rgba(192,175,192,1.0)'
+>>>>>>> issue-3
 };
 
 export default colorObj;

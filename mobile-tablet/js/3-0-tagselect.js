@@ -103,4 +103,9 @@ footerBtn.addEventListener('mouseover', function(){
 const before = document.getElementById('before');
 console.log(before);
 // *button#before style
+<<<<<<< HEAD
 before.setAttribute('style', `background: none; border: none;`);
+=======
+before.setAttribute('style', `background: none; border: none;`);
+before.classList.toggle('before-position');
+>>>>>>> issue-3

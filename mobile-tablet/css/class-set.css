@@ -5,4 +5,31 @@
 }
 .none{
   display: none;
+<<<<<<< HEAD
 }
+=======
+}
+.padding-left{
+  padding-left: 0;
+}
+.list-style-none{
+  list-style-type: none;
+}
+.tag-size{
+  width: 7rem;
+  height: 2.5rem;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 50px;
+  text-align: center;
+  border: none;
+}
+.before-position{
+  position: absolute;
+  top: 1vw;
+  height: 1vw;
+}
+.circle{
+  border-radius: 50%;
+}
+>>>>>>> issue-3
