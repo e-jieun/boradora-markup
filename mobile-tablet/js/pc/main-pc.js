@@ -81,10 +81,12 @@ if (window.innerWidth >= 1024) {
   searchBtn.classList.add('circle');
   setBgColor(searchBtn, colorObj.colorDp);
   setPosition(searchBtn, 'relative', '', '', `${hun/2}px`);
+  setSize(searchBtn, '30px', '30px');
+  setDisplay(searchBtn, 'flex');
   console.log(searchBtn);
   appendChild(searchBtn, 'img');
-  searchBtn.firstElementChild.setAttribute('src', `SVG/search.svg`);
-  setSize(searchBtn.firstElementChild, '30px');
+  searchBtn.firstElementChild.setAttribute('src', `SVG/white-search.svg`);
+  setSize(searchBtn.firstElementChild, '20px', '20px');
 
   // *tagCon
   const tagCon = menuItem.at(-1);
