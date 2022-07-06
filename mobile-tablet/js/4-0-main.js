@@ -3,6 +3,7 @@ import {
   dramaExplain,
   dramaTitle
 } from "./module/dramainform.js";
+import stringNum from "./module/stringnum.js";
 
 // *모바일, 태블릿
 if (window.innerWidth < 1024) {
@@ -94,7 +95,7 @@ if (window.innerWidth < 1024) {
   let isClick = true;
   headerSearch.firstElementChild.addEventListener('click', (event) => {
     console.log(event.target);
-    console.log('서치할 수 있는 창을 만들자');
+    // console.log('서치할 수 있는 창을 만들자');
     if (isClick === true) {
       searchBar.style.display = 'block';
       searchBar.style.transition = '1s';
@@ -235,50 +236,49 @@ if (window.innerWidth < 1024) {
     // isStatus = parseInt(isStatus.replace(regex,''));
     // console.log(isStatus);
 
-    let moveToRight = -isStatus-window.innerWidth;
+    let moveToRight = -isStatus - window.innerWidth;
     console.log(moveToRight);
     console.log(window.innerWidth);
-    slideCon.style.left = moveToRight+'px';
-    if(moveToRight <= -window.innerHeight*4){
-      console.log('오른쪽 버튼에 의해 움직여진 값은?'+moveToRight);
-      moveToRight = -1860;
-      console.log(moveToRight);
+    slideCon.style.left = moveToRight + 'px';
+    console.log(slideCon.style.width);
+
+    // *콘텐츠 끝에서 버튼을 멈춰주는 부분
+    if (moveToRight <= -window.innerWidth * colorArr.length) {
+      moveToRight = -window.innerWidth * (colorArr.length - 1);
+      slideCon.style.left = moveToRight + 'px';
     }
-    // ?얘는
+    // ?이 부분에서 다시 마지막에 포지션 값이 도달했을 떄 더 이상 움직이지 않도록 해주기
     // widthValue >= slideCon.style.width ? widthValue = slideCon.style.width : '';
     console.log('현재 widthValue: ' + widthValue);
   }
 
   // *leftBtn callback func
-  const leftSlide = function() {
+  const leftSlide = function () {
     console.log(slideCon.style.left);
     // *slideCon의 left의 현재값
     let isStatus = slideCon.style.left;
     // let regex = /[^0-9]/g;
-    // ?변경된 문자열을 새로 반환해주는 문자열 메서드 .replace()
-    // ?regex부분에 사용한 정규식: /[^0-9]/g === 0-9의 정수가 아닌 것을 제외하고 전체에서 검사해서 반환
-    // ?현재 값을 음수가 아닌 양수로 구해준 부분
+    
     isStatus = stringNum(isStatus);
-    // isStatus = parseInt(isStatus.replace(regex, ''));
-    // console.log(isStatus);
 
-    // ?-1000+500
+    // *브라우저의 보이는 창 넓이값만큼 현재 값에 더해준 부분
     let moveToLeft = -isStatus + window.innerWidth;
     console.log(moveToLeft);
-
+    // *왼쪽 버튼을 클릭하면 앞의 슬라이드로 이동해준다
     slideCon.style.left = moveToLeft + 'px';
     console.log(slideCon.style.left);
     // *left 값이 0보다 크면 0에서 멈춰주도록 한 부분
-    // ?왜 다시 흰 화면으로 갔다가 돌아오는 거지....
-    moveToLeft >= -window.innerWidth && moveToLeft < 0 ? moveToLeft = 0 : '';
-    // todo: 글씨도 함께 변하도록 해줘야 한다
+    // *인덱스 0의 이미지 슬라이드일 경우 더 이상 앞으로 움직이지 않는다
+    if (moveToLeft >= 0) {
+      moveToLeft = 0;
+      slideCon.style.left = moveToLeft + 'px';
+    }
+
+    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+    title.textContent = dramaTitle[clickValue];
+    drama.textContent = dramaExplain[clickValue];
   }
 
-  // *문자열에서 숫자만 들어간 문자열을 다시 정수로 되돌려주도록 하는 함수 
-  function stringNum(elem){
-    let regex = /[^0-9]/g;
-    return elem = parseInt(elem.replace(regex,''));
-  }
   rightBtn.addEventListener('click', rightSlide);
   leftBtn.addEventListener('click', leftSlide);
 }
