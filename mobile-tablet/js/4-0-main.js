@@ -1,9 +1,13 @@
 import colorObj from "./module/color.js";
 import {
+  setSize
+} from "./module/css-function.js";
+import {
   dramaExplain,
   dramaTitle
 } from "./module/dramainform.js";
 import stringNum from "./module/stringnum.js";
+import mathAbs from "./module/mathabs.js";
 
 // *모바일, 태블릿
 if (window.innerWidth < 1024) {
@@ -180,11 +184,11 @@ if (window.innerWidth < 1024) {
   // console.log(slideChild);
   // 우선 구분해줄 배경색 배열
   // todo: 지금은 배경색을 넣어줬는데 이미지 소스로 변경해주기
-  let colorArr = ['https://picsum.photos/1000/1000?random=1', 'https://picsum.photos/1000/1000?random=2', 'https://picsum.photos/1000/1000?random=3', 'https://picsum.photos/1000/1000?random=4', 'https://picsum.photos/1000/1000?random=5'];
+  let imgArr = ['https://picsum.photos/1000/1000?random=1', 'https://picsum.photos/1000/1000?random=2', 'https://picsum.photos/1000/1000?random=3', 'https://picsum.photos/1000/1000?random=4', 'https://picsum.photos/1000/1000?random=5'];
   // *slideChild style
   for (let i = 0; i < slideChild.length; i++) {
     slideChild[i].setAttribute('style', `width: 100vw; height: 100vh; min-width: 100vw;`);
-    slideChild[i].innerHTML = `<img src=${colorArr[i]}>`;
+    slideChild[i].innerHTML = `<img src=${imgArr[i]}>`;
 
     const slideChildImg = slideChild[i].firstElementChild;
     console.log(slideChildImg);
@@ -202,18 +206,18 @@ if (window.innerWidth < 1024) {
   console.log(playBtn);
 
   // *buttonCon.children
-  const buttonItem = buttonCon.children;
+  const buttonItem = Array.from(buttonCon.children);
   // *buttonCon.children style
-  for (let i = 0; i < buttonItem.length; i++) {
-    buttonItem[i].style.background = 'none';
-    buttonItem[i].style.border = 'none';
-  }
+  buttonItem.map(elem => {
+    elem.setAttribute('style', `background: none; border: none;`);
+    setSize(elem.firstElementChild, '20px', '20px');
+  })
 
   // *playBtn style
   console.log(playBtn);
   playBtn.setAttribute('style', `width: 50px; height: 50px; background: ${colorObj.colorBp}; border: none; transform: rotate(180deg); border-radius: 50%;`);
   // *playBtn.children[0].style.
-
+  
   // *leftBtn style
   rightBtn.style.transform = 'rotate(180deg)';
   let widthValue = window.innerWidth;
@@ -223,8 +227,12 @@ if (window.innerWidth < 1024) {
   // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
   title.textContent = dramaTitle[clickValue];
   drama.textContent = dramaExplain[clickValue];
-
-  // todo: 문제는 텍스트 => 이 부분은 window.innerwidth로 지금의 left값을 나눠주고 양수로 바꿔주면 인덱스와 같아져서 그 인덱스를 적용시키면 되지 않을까?
+  
+  // todo: 문제는 텍스트 => 이 부분은 window.innerwidth로 지금의 left값을 나눠주고 양수로 바꿔주면 인덱스와 같아져서 그 인덱스를 적용시키면 되지 않을까? => 해결 완료
+  
+  // *버튼 이벤트 걸어준 부분 => 콜백함수는 위에 작성되어있음
+  rightBtn.addEventListener('click', rightSlide);
+  leftBtn.addEventListener('click', leftSlide);
 
   slideCon.style.left = 0;
 
@@ -241,12 +249,12 @@ if (window.innerWidth < 1024) {
     console.log(slideCon.style.width);
 
     // *콘텐츠 끝에서 버튼을 멈춰주는 부분
-    if (moveToRight <= -window.innerWidth * colorArr.length) {
-      moveToRight = -window.innerWidth * (colorArr.length - 1);
+    if (moveToRight <= -window.innerWidth * imgArr.length) {
+      moveToRight = -window.innerWidth * (imgArr.length - 1);
       slideCon.style.left = moveToRight + 'px';
     }
-    // ?무조건 양수로 바꿔주는 메서드
-    const strIndex = Math.abs(moveToRight / window.innerWidth);
+    // *양수로 만들어주는 함수를 변수로 담은 부분
+    let strIndex = mathAbs(moveToRight / window.innerWidth);
 
     console.log('현재 widthValue: ' + widthValue);
     // *텍스트 넣어주는 부분
@@ -261,30 +269,35 @@ if (window.innerWidth < 1024) {
     // *slideCon의 left의 현재값
     let isStatus = slideCon.style.left;
 
+    // *문자열인 단위값을 .substring()으로 문자열 뒤에서 2자리를 떼고 문자열을 반환해주는 함수 사용
     isStatus = stringNum(isStatus);
+    console.log(isStatus);
 
     // *브라우저의 보이는 창 넓이값만큼 현재 값에 더해준 부분
     let moveToLeft = -isStatus + window.innerWidth;
     console.log(moveToLeft);
     // *왼쪽 버튼을 클릭하면 앞의 슬라이드로 이동해준다
-    slideCon.style.left = moveToLeft + 'px';
+    slideCon.style.left = `${moveToLeft}px`;
     console.log(slideCon.style.left);
     // *left 값이 0보다 크면 0에서 멈춰주도록 한 부분
     // *인덱스 0의 이미지 슬라이드일 경우 더 이상 앞으로 움직이지 않는다
     if (moveToLeft >= 0) {
       moveToLeft = 0;
-      slideCon.style.left = moveToLeft + 'px';
+      slideCon.style.left = `${moveToLeft}px`;
     }
 
     // ?무조건 양수로 바꿔주는 메서드
-    const strIndex = Math.abs(moveToLeft / window.innerWidth);
+    console.log(moveToLeft / window.innerWidth);
+    // *양수로 만들어주는 함수를 변수로 담은 부분
+    // ?return으로 해주지 않아서 return받지 못한 것이었음
+    let strIndex = mathAbs(moveToLeft / window.innerWidth);
+
 
     // *텍스트 넣어주는 부분
     // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+    // !객체로 따로 분리돼있음
     title.textContent = dramaTitle[strIndex];
     drama.textContent = dramaExplain[strIndex];
   }
 
-  rightBtn.addEventListener('click', rightSlide);
-  leftBtn.addEventListener('click', leftSlide);
 }
