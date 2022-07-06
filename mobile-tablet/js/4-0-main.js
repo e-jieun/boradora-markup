@@ -224,17 +224,15 @@ if (window.innerWidth < 1024) {
   title.textContent = dramaTitle[clickValue];
   drama.textContent = dramaExplain[clickValue];
 
-  // todo: 이제 양옆으로는 잘 움직인다 문제는 텍스트가 제대로 들어가지 않는 것 -> 이 부분은 window.innerwidth로 지금의 left값을 나눠주고 양수로 바꿔주면 인덱스와 같아져서 그 인덱스를 적용시키면 되지 않을까?
+  // todo: 문제는 텍스트 => 이 부분은 window.innerwidth로 지금의 left값을 나눠주고 양수로 바꿔주면 인덱스와 같아져서 그 인덱스를 적용시키면 되지 않을까?
 
   slideCon.style.left = 0;
+
   // *rightBtn callback func
   const rightSlide = function () {
     let isStatus = slideCon.style.left;
     console.log(isStatus);
     isStatus = stringNum(isStatus);
-    // let regex = /[^0-9]/g;
-    // isStatus = parseInt(isStatus.replace(regex,''));
-    // console.log(isStatus);
 
     let moveToRight = -isStatus - window.innerWidth;
     console.log(moveToRight);
@@ -247,9 +245,14 @@ if (window.innerWidth < 1024) {
       moveToRight = -window.innerWidth * (colorArr.length - 1);
       slideCon.style.left = moveToRight + 'px';
     }
-    // ?이 부분에서 다시 마지막에 포지션 값이 도달했을 떄 더 이상 움직이지 않도록 해주기
-    // widthValue >= slideCon.style.width ? widthValue = slideCon.style.width : '';
+    // ?무조건 양수로 바꿔주는 메서드
+    const strIndex = Math.abs(moveToRight / window.innerWidth);
+
     console.log('현재 widthValue: ' + widthValue);
+    // *텍스트 넣어주는 부분
+    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+    title.textContent = dramaTitle[strIndex];
+    drama.textContent = dramaExplain[strIndex];
   }
 
   // *leftBtn callback func
@@ -257,8 +260,7 @@ if (window.innerWidth < 1024) {
     console.log(slideCon.style.left);
     // *slideCon의 left의 현재값
     let isStatus = slideCon.style.left;
-    // let regex = /[^0-9]/g;
-    
+
     isStatus = stringNum(isStatus);
 
     // *브라우저의 보이는 창 넓이값만큼 현재 값에 더해준 부분
@@ -274,9 +276,13 @@ if (window.innerWidth < 1024) {
       slideCon.style.left = moveToLeft + 'px';
     }
 
+    // ?무조건 양수로 바꿔주는 메서드
+    const strIndex = Math.abs(moveToLeft / window.innerWidth);
+
+    // *텍스트 넣어주는 부분
     // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
-    title.textContent = dramaTitle[clickValue];
-    drama.textContent = dramaExplain[clickValue];
+    title.textContent = dramaTitle[strIndex];
+    drama.textContent = dramaExplain[strIndex];
   }
 
   rightBtn.addEventListener('click', rightSlide);
