@@ -23,6 +23,7 @@ console.log(screenCon);
 // root style
 root.setAttribute('style', `width: ${hun}vw; height: ${hun}vh;`);
 root.style.backgroundImage = `url("https://picsum.photos/1000/1000?random=1")`;
+root.style.backgroundSize = 'cover';
 // screenCon style
 screenCon.setAttribute('style',
   `width: inherit; height: ${window.offsetHeight}px; position: fixed; bottom: 0; display: grid; grid-template-rows: 2fr 1fr;`
@@ -193,14 +194,18 @@ console.log(plusBtnTwo);
 
 // *카테고리 메뉴 부분
 const menuNameItem = Array.from(menuName.children);
-let now = new Date();
+// *현재 시간을 찍어주기 위해 => 북마크 시간이 현재 시간은 아니니까
+const date = new Date();
+// *카테고리 메뉴
 let menuNameArr = ['자막선택', '재생속도', '북마크'];
+
 let menuItemArr = [`${makeElem('div', 1, '동시자막')}${makeElem('div', 1, '무자막')}`, `${makeElem('div', 1, `0.5x`)}${makeElem('div', 1, `0.75x`)}${makeElem('div', 1, `1.0x`)}${makeElem('div', 1, `1.25x`)}${makeElem('div', 1, `1.5x`)}`, `${appendChild(menuItemAppear, 'div', '')}`];
 
 menuNameItem.forEach((elem, index) => {
   elem.setAttribute('data-menu', index + 1);
   elem.style.color = colorObj.colorFf;
   index === 0 ? elem.textContent = menuNameArr[index] : index === 1 ? elem.textContent = menuNameArr[index] : '';
+  // *카테고리 메뉴의 이름을 넣어준 부분
   index === menuNameArr.length - 1 ? elem.textContent = menuNameArr.at(-1) : '';
   console.log(menuNameArr.at(-1));
 
@@ -211,10 +216,11 @@ menuNameItem.forEach((elem, index) => {
     // true인 경우에는 컨테이너에 자식요소를 각각 다르게 해서 다시 없애주고, 다시 붙여주고... => innerHTML을 재할당하면 값이 싹 바뀌니까 배열에 자식을 뭘 붙여줄 것인지 알아내서 문자열로 넣고 각각 클릭할 때마다 다른 innerHTML을 만들도록 하면 될 것 같다
     if (event.target.dataset.menu === elem.dataset.menu) {
       // event.target.style.color = `${colorObj.colorDp}`;
+      // *dataset.menu에서 -1을 한 정수가 인덱스다
       menuItemAppear.innerHTML = menuItemArr[Number(event.target.dataset.menu) - 1];
       console.log(menuItemAppear);
     } else {
-      // elem.style.color = `${colorObj.colorFf}`;
+      elem.style.color = `${colorObj.colorFf}`;
     }
   });
 });
@@ -225,21 +231,26 @@ console.log(menuName);
 
 // carCon.style.display = 'none';
 
+// todo: 이 부분 좀 더 정리해주자!
 const makeMenu = playmenuCon.lastElementChild.lastElementChild;
 console.log(menuBtn);
-
+carCon.style.visibility = 'hidden';
 let isClick = true;
 // *클릭 이벤트
+// !visibility로 해결했더니 잘 해결된다
+// todo: 각 메뉴마다 동작하도록 만들어줘야 할 것
 makeMenu.addEventListener('click', function () {
   // console.log('makemenu');
   if (isClick === true) {
     console.log(true);
     // setBgColor(this, '#ff0000');
-    setDisplay(carCon, 'block');
+    carCon.style.visibility = 'visible';
+    // setDisplay(carCon, 'block');
     isClick = false;
   } else {
     console.log(false);
-    setDisplay(carCon, 'none');
+    carCon.style.visibility = 'hidden';
+    // setDisplay(carCon, 'none');
     isClick = true;
   }
   // console.log(this);
