@@ -217,7 +217,7 @@ if (window.innerWidth < 1024) {
   console.log(playBtn);
   playBtn.setAttribute('style', `width: 50px; height: 50px; background: ${colorObj.colorBp}; border: none; transform: rotate(180deg); border-radius: 50%;`);
   // *playBtn.children[0].style.
-  
+
   // *leftBtn style
   rightBtn.style.transform = 'rotate(180deg)';
   let widthValue = window.innerWidth;
@@ -227,77 +227,74 @@ if (window.innerWidth < 1024) {
   // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
   title.textContent = dramaTitle[clickValue];
   drama.textContent = dramaExplain[clickValue];
-  
+
   // todo: 문제는 텍스트 => 이 부분은 window.innerwidth로 지금의 left값을 나눠주고 양수로 바꿔주면 인덱스와 같아져서 그 인덱스를 적용시키면 되지 않을까? => 해결 완료
-  
-  
+
+
   slideCon.style.left = 0;
-  
-  // *rightBtn callback func
-  const rightSlide = function () {
-    let isStatus = slideCon.style.left;
-    console.log(isStatus);
-    isStatus = stringNum(isStatus);
-    
-    let moveToRight = -isStatus - window.innerWidth;
-    console.log(moveToRight);
-    console.log(window.innerWidth);
-    slideCon.style.left = moveToRight + 'px';
-    console.log(slideCon.style.width);
-    
-    // *콘텐츠 끝에서 버튼을 멈춰주는 부분
-    if (moveToRight <= -window.innerWidth * imgArr.length) {
-      moveToRight = -window.innerWidth * (imgArr.length - 1);
+  const buttonCallback = {
+    rightSlide: function () {
+      let isStatus = slideCon.style.left;
+      console.log(isStatus);
+      isStatus = stringNum(isStatus);
+
+      let moveToRight = -isStatus - window.innerWidth;
+      console.log(moveToRight);
+      console.log(window.innerWidth);
       slideCon.style.left = moveToRight + 'px';
+      console.log(slideCon.style.width);
+
+      // *콘텐츠 끝에서 버튼을 멈춰주는 부분
+      if (moveToRight <= -window.innerWidth * imgArr.length) {
+        moveToRight = -window.innerWidth * (imgArr.length - 1);
+        slideCon.style.left = moveToRight + 'px';
+      }
+      // *양수로 만들어주는 함수를 변수로 담은 부분
+      let strIndex = mathAbs(moveToRight / window.innerWidth);
+
+      console.log('현재 widthValue: ' + widthValue);
+      // *텍스트 넣어주는 부분
+      // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+      title.textContent = dramaTitle[strIndex];
+      drama.textContent = dramaExplain[strIndex];
+    },
+    leftSlide: function () {
+      // *slideCon의 left의 현재값
+      let isStatus = slideCon.style.left;
+
+      // *문자열인 단위값을 .substring()으로 문자열 뒤에서 2자리를 떼고 문자열을 반환해주는 함수 사용
+      isStatus = stringNum(isStatus);
+      console.log(isStatus);
+
+      // *브라우저의 보이는 창 넓이값만큼 현재 값에 더해준 부분
+      let moveToLeft = -isStatus + window.innerWidth;
+      console.log(moveToLeft);
+      // *왼쪽 버튼을 클릭하면 앞의 슬라이드로 이동해준다
+      slideCon.style.left = moveToLeft + 'px';
+      console.log(slideCon.style.left);
+      // *left 값이 0보다 크면 0에서 멈춰주도록 한 부분
+      // *인덱스 0의 이미지 슬라이드일 경우 더 이상 앞으로 움직이지 않는다
+      if (moveToLeft >= 0) {
+        moveToLeft = 0;
+        slideCon.style.left = `${moveToLeft}px`;
+      }
+
+      // ?무조건 양수로 바꿔주는 메서드
+      console.log(moveToLeft / window.innerWidth);
+      // *양수로 만들어주는 함수를 변수로 담은 부분
+      // ?return으로 해주지 않아서 return받지 못한 것이었음
+      let strIndex = mathAbs(moveToLeft / window.innerWidth);
+
+
+      // *텍스트 넣어주는 부분
+      // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+      // !객체로 따로 분리돼있음
+      title.textContent = dramaTitle[strIndex];
+      drama.textContent = dramaExplain[strIndex];
     }
-    // *양수로 만들어주는 함수를 변수로 담은 부분
-    let strIndex = mathAbs(moveToRight / window.innerWidth);
-    
-    console.log('현재 widthValue: ' + widthValue);
-    // *텍스트 넣어주는 부분
-    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
-    title.textContent = dramaTitle[strIndex];
-    drama.textContent = dramaExplain[strIndex];
   }
 
-  // *leftBtn callback func
-  const leftSlide = function () {
-    console.log(slideCon.style.left);
-    // *slideCon의 left의 현재값
-    let isStatus = slideCon.style.left;
-    
-    // *문자열인 단위값을 .substring()으로 문자열 뒤에서 2자리를 떼고 문자열을 반환해주는 함수 사용
-    isStatus = stringNum(isStatus);
-    console.log(isStatus);
-    
-    // *브라우저의 보이는 창 넓이값만큼 현재 값에 더해준 부분
-    let moveToLeft = -isStatus + window.innerWidth;
-    console.log(moveToLeft);
-    // *왼쪽 버튼을 클릭하면 앞의 슬라이드로 이동해준다
-    slideCon.style.left = moveToLeft+'px';
-    console.log(slideCon.style.left);
-    // *left 값이 0보다 크면 0에서 멈춰주도록 한 부분
-    // *인덱스 0의 이미지 슬라이드일 경우 더 이상 앞으로 움직이지 않는다
-    if (moveToLeft >= 0) {
-      moveToLeft = 0;
-      slideCon.style.left = `${moveToLeft}px`;
-    }
-    
-    // ?무조건 양수로 바꿔주는 메서드
-    console.log(moveToLeft / window.innerWidth);
-    // *양수로 만들어주는 함수를 변수로 담은 부분
-    // ?return으로 해주지 않아서 return받지 못한 것이었음
-    let strIndex = mathAbs(moveToLeft / window.innerWidth);
-    
-    
-    // *텍스트 넣어주는 부분
-    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
-    // !객체로 따로 분리돼있음
-    title.textContent = dramaTitle[strIndex];
-    drama.textContent = dramaExplain[strIndex];
-  }
   // *버튼 이벤트 걸어준 부분 => 콜백함수는 위에 작성되어있음
-  rightBtn.addEventListener('click', rightSlide);
-  leftBtn.addEventListener('click', leftSlide);
-  
+  rightBtn.addEventListener('click', buttonCallback.rightSlide);
+  leftBtn.addEventListener('click', buttonCallback.leftSlide);
 }
