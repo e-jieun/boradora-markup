@@ -8,9 +8,9 @@ import {
 } from "./module/dramainform.js";
 import stringNum from "./module/stringnum.js";
 import mathAbs from "./module/mathabs.js";
+import pageLoad from "./module/pageload.js";
 
 // *모바일, 태블릿
-if (window.innerWidth < 1024) {
   // *
   document.body.setAttribute('style', `margin: 0; padding: 0; box-sizing: border-box; overflow: hidden;`);
   // *select root
@@ -104,6 +104,9 @@ if (window.innerWidth < 1024) {
       searchBar.style.display = 'block';
       searchBar.style.transition = '1s';
       isClick = false;
+      headerSearch.firstElementChild.addEventListener('click', ()=>{
+        pageLoad('5-0_search.html');
+      })
     } else {
       // ?문제는 클릭했을 때 사라지기는 하는데 문제는 인풋을 입력하기 위해 클릭해도 사라진다는 것이다 => 해결: 아이콘 자체에 클릭 이벤트를 달아서 그 부분 이외엔 이벤트가 일어나지 않도록 해줌
       searchBar.style.display = 'none';
@@ -163,9 +166,12 @@ if (window.innerWidth < 1024) {
   }
   // select menuChild[1]
   let homeBtn = menuChild[1];
-  // console.log(homeBtn);
+  console.log(homeBtn);
   homeBtn.style.background = '#c8b5c8ff';
   homeBtn.style.borderRadius = '50%';
+
+
+
   // --------------------------------------
   // slide 효과를 넣는다
   // 배경에 슬라이드 넣기
@@ -297,4 +303,3 @@ if (window.innerWidth < 1024) {
   // *버튼 이벤트 걸어준 부분 => 콜백함수는 위에 작성되어있음
   rightBtn.addEventListener('click', buttonCallback.rightSlide);
   leftBtn.addEventListener('click', buttonCallback.leftSlide);
-}

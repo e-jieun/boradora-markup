@@ -1,4 +1,5 @@
 import colorObj from "./module/color.js"
+import pageLoad from "./module/pageload.js";
 // import borderBk from "./module/borderbk.js"
 import tagChange from "./module/tagcolor.js"
 
@@ -105,3 +106,13 @@ console.log(before);
 // *button#before style
 before.setAttribute('style', `background: none; border: none;`);
 before.classList.toggle('before-position');
+
+before.addEventListener('click', ()=>{
+  pageLoad('4-0_main.html');
+});
+
+const nextBtn = document.getElementById('next');
+console.log(nextBtn);
+nextBtn.addEventListener('click', ()=>{
+  pageLoad('4-0_main.html');
+})

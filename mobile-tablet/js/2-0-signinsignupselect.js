@@ -1,6 +1,7 @@
 import colorObj from "./module/color.js";
 import borderBk from "./module/borderbk.js";
 import moveToPage from "./module/locationhref.js";
+import pageLoad from "./module/pageload.js";
 
 document.body.setAttribute('style', 'margin: 0; padding: 0;');
 console.log(document.body);
@@ -49,7 +50,7 @@ console.log(signUp);
 
 // *회원가입 페이지로 연결되도록 해주는 부분
 signUp.addEventListener('click', function(){
-  // let signUpLink = 
+  pageLoad('2-2_signup.html');
 })
 
 
