@@ -165,11 +165,21 @@ import pageLoad from "./module/pageload.js";
     // => stroke-width로 svg 이미지의 두꼐가 조절이 가능하다
   }
   // select menuChild[1]
-  let homeBtn = menuChild[1];
+  const bookmarkBtn = menuChild[0];
+  const homeBtn = menuChild[1];
+  const profileBtn = menuChild[2];
   console.log(homeBtn);
   homeBtn.style.background = '#c8b5c8ff';
   homeBtn.style.borderRadius = '50%';
 
+  const menuChildArr = Array.from(menuCon.children);
+  menuChildArr.forEach((elem, index) => {
+    elem.addEventListener('click', (event)=>{
+      index === 0 ? pageLoad('6-0_bookmark.html') : '';
+      index === 1 ? pageLoad('4-0_main.html') : '';
+      index === 2 ? pageLoad('9-0_profile.html') : '';
+    })
+  })
 
 
   // --------------------------------------
@@ -202,7 +212,7 @@ import pageLoad from "./module/pageload.js";
     // slideChildImg.style.objectFit = 'cover';
   }
   // console.log(buttonCon.children);
-  console.clear();
+  // console.clear();
   // *select buttonCon.children[2]
   const rightBtn = buttonCon.lastElementChild;
   const leftBtn = buttonCon.firstElementChild;

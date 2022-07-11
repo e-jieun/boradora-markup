@@ -15,6 +15,7 @@ import borderBk from "./module/css-function.js";
 import appendChild from "./module/appendchild.js";
 import colorObj from "./module/color.js";
 import tagChange from "./module/tagcolor.js";
+import pageLoad from "./module/pageload.js";
 
 const root = document.getElementById('root');
 console.log(root);
@@ -53,7 +54,7 @@ setDisplay(profilePic, 'flex', 'flex-end', center);
 // *profilePic > img
 appendChild(profilePic, 'img', 'profile-pic');
 const pic = profilePic.firstElementChild;
-setSize(pic, '100px','100px');
+setSize(pic, '100px', '100px');
 pic.classList.toggle('circle');
 setBgColor(pic, colorObj.colorGr);
 
@@ -95,6 +96,10 @@ btn.textContent = '프로필 수정';
 tagChange(btn, colorObj.colorDp, colorObj.colorYl);
 console.dir(btn);
 
+btn.addEventListener('click', () => {
+  pageLoad('9-1_profile edit.html');
+});
+
 // *queueCon
 const queueCon = profileCon.nextElementSibling;
 console.log(queueCon);
@@ -127,8 +132,8 @@ boldTxt.style.fontWeight = '600';
 const queueVcrCon = queueCon.lastElementChild;
 console.log(queueVcrCon);
 let queueVcrStr = '';
-for(let i = 0; i < 3; i++){
-  let str = `<div><button>다시 재생</button></div>`; 
+for (let i = 0; i < 3; i++) {
+  let str = `<div><button>다시 재생</button></div>`;
   queueVcrStr += str;
 }
 console.log(queueVcrStr);

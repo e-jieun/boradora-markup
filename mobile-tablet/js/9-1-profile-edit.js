@@ -15,6 +15,7 @@ import borderBk from "./module/css-function.js";
 import appendChild from "./module/appendchild.js";
 import colorObj from "./module/color.js";
 import tagChange from "./module/tagcolor.js";
+import pageLoad from "./module/pageload.js";
 
 const root = document.getElementById('root');
 console.log(root);
@@ -73,6 +74,10 @@ btn.style.width = '10rem';
 btn.textContent = '프로필 수정 완료';
 tagChange(btn, colorObj.colorDp, colorObj.colorYl);
 console.dir(btn);
+
+btn.addEventListener('click', () => {
+  pageLoad('9-0_profile.html');
+});
 
 // *queueCon
 const queueCon = profileCon.nextElementSibling;
