@@ -9,7 +9,7 @@ document.body.setAttribute('style', 'margin: 0; padding: 0;');
 const root = document.getElementById('root');
 console.log(root);
 // *root style
-root.setAttribute('style', `width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 5fr 1fr; color: ${colorObj.colorDp}; overflow: hidden;`);
+root.setAttribute('style', `width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 5fr 1fr; color: ${colorObj.colorDp}; overflow: scroll;`);
 // root.style.background = colorObj.colorBp;
 // console.dir(root.style);
 
