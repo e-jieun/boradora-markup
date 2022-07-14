@@ -2,6 +2,7 @@ import colorObj from "./module/color.js"
 import pageLoad from "./module/pageload.js";
 // import borderBk from "./module/borderbk.js"
 import tagChange from "./module/tagcolor.js"
+import {setPosition} from "./module/css-function.js"
 
 document.body.setAttribute('style', 'margin: 0; padding: 0;');
 
@@ -9,7 +10,7 @@ document.body.setAttribute('style', 'margin: 0; padding: 0;');
 const root = document.getElementById('root');
 console.log(root);
 // *root style
-root.setAttribute('style', `width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 5fr 1fr; color: ${colorObj.colorDp}; overflow: scroll;`);
+root.setAttribute('style', `width: 100vw; height: 100vh; display: grid; grid-template-rows: 1fr 5fr 1fr; color: ${colorObj.colorDp}; overflow: hidden;`);
 // root.style.background = colorObj.colorBp;
 // console.dir(root.style);
 
@@ -49,7 +50,17 @@ const li = document.getElementsByTagName('li');
 // console.log(li);
 // console.log(ul);
 // ul style
-ul.setAttribute('style', 'width: 20vw; list-style-type: none; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; column-gap: 1rem;');
+ul.setAttribute('style', `width: 80vw; list-style-type: none; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; column-gap: 1rem; overflow: scroll;`);
+// ul.addEventListener('wheel', event => {
+//   event.preventDefault(); //기본 기능인 휠이벤트가 작동하지 않도록 해줌
+//   console.log(window.pageXOffset);
+//   console.dir(ul);
+//   console.dir(window);
+//   console.log(event.deltaY);
+//   const getY = event.deltaY;
+//   ul.scrollBy(getY, 0);
+//   const nextvalue = window.scrollX;
+// })
 
 
 // *li => 태그 아이템 요소
@@ -87,6 +98,8 @@ const footer = document.querySelector('footer');
 console.log(footer);
 // *footer style
 footer.setAttribute('style', `display: flex; justify-content: flex-end;`)
+setPosition(footer, 'fixed', '', '10vw', '', '10vw');
+
 
 // *footer.children
 const footerBtn = footer.children[0];
