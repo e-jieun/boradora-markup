@@ -11,7 +11,6 @@ import {
   hunPer
 } from "./module/variable.js";
 import makeElem from "./module/makeelem.js";
-import borderBk from "./module/css-function.js";
 import appendChild from "./module/appendchild.js";
 import colorObj from "./module/color.js";
 import tagChange from "./module/tagcolor.js";
@@ -43,7 +42,6 @@ const profileConChild = Array.from(profileCon.children);
 console.log(profileConChild);
 profileConChild.map(elem => {
   setSize(elem, inherit, hunPer);
-  // borderBk(elem);
 });
 
 // *profilePic
@@ -100,7 +98,6 @@ for (let i = 0; i < 2; i++) {
 console.log(queueVcrStr);
 queueChild.innerHTML = queueVcrStr;
 setSize(queueChild, inherit, hunPer);
-// queueChild.style.gridTemplateRows = `1fr 1fr`;
 setDisplay(queueChild, 'flex', center, center, 'column');
 setPosition(queueChild, 'relative', `-${hun/2}px`);
 
@@ -123,4 +120,4 @@ inputTxt.map(elem => {
 
 });
 
-// todo: root 마지막 자식요소는 하단의 fixed 메뉴로 사용할 것
+console.clear();

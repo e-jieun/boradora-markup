@@ -140,3 +140,4 @@ const searchItemArr = Array.from(itemCon.children);
 searchItemArr.forEach((elem, index) => {
   elem.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://picsum.photos/1000/1000?random=1")`;
 });
+console.clear();

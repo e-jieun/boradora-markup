@@ -175,8 +175,8 @@ homeBtn.style.borderRadius = '50%';
 const menuChildArr = Array.from(menuChild);
 menuChildArr.map((elem, index) => {
   elem.addEventListener('click', () => {
-    index === 0 ? pageLoad('6-0_bookmark.html') : '';
-    index === 1 ? pageLoad('4-0_main.html') : '';
+    index === 0 ? pageLoad('6-0_bookmark.html') :
+    index === 1 ? pageLoad('4-0_main.html') :
     index === 2 ? pageLoad('9-0_profile.html') : '';
   })
 })
@@ -318,3 +318,4 @@ const buttonCallback = {
 // *버튼 이벤트 걸어준 부분 => 콜백함수는 위에 작성되어있음
 rightBtn.addEventListener('click', buttonCallback.rightSlide);
 leftBtn.addEventListener('click', buttonCallback.leftSlide);
+console.clear();

@@ -129,3 +129,4 @@ console.log(nextBtn);
 nextBtn.addEventListener('click', ()=>{
   pageLoad('4-0_main.html');
 })
+console.clear();

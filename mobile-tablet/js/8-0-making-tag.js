@@ -63,3 +63,4 @@ tagItem.forEach((elem, index) => {
   }
 });
 // https://github.com/kongukjae/web-C-lecture/commit/7b9f674e246b2b348c1cc87d14512d203f7711b0
+console.clear();

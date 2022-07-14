@@ -59,3 +59,4 @@ const logoImg = logoCon.children[0];
 console.log(logoImg);
 // *logoDiv
 logoImg.setAttribute('style', 'width: 200px; height: 100px;');
+console.clear();

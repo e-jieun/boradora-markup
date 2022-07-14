@@ -159,3 +159,4 @@ searchItemArr.forEach((elem, index) => {
 });
 
 // console.log(itemCon.querySelectorAll('img'));
+console.clear();

@@ -255,3 +255,4 @@ makeMenu.addEventListener('click', function () {
   }
   // console.log(this);
 });
+console.clear();
