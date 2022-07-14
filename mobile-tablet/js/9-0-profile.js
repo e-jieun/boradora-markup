@@ -158,3 +158,39 @@ queueVcrImg.map(elem => {
 })
 
 // todo: root 마지막 자식요소는 하단의 fixed 메뉴로 사용할 것
+appendChild(root, 'div', 'menu-con');
+console.clear();
+const menuCon = document.getElementById('menu-con');
+menuCon.innerHTML = makeElem('button', 3);
+console.log(menuCon);
+// menuCon style
+menuCon.setAttribute('style', `width: 100vw; position: fixed; bottom: 3vh; display: flex; align-items: center; justify-content: center; column-gap: 1vh;`);
+// select menuCon.children
+const menuChild = menuCon.children;
+console.log(menuChild);
+// menuChild style
+const imgArr = ['./SVG/bookmark.svg', './SVG/home.svg', './SVG/profile.svg'];
+for (let i = 0; i < menuChild.length; i++) {
+  menuChild[i].setAttribute('style', `width: 80px; height: 80px; background: none; border: 0px; justify-content: center;`);
+  console.log(menuChild[i].children);
+  menuChild[i].innerHTML = makeElem('img', 1);
+  menuChild[i].firstElementChild.src = imgArr[i];
+  menuChild[i].firstElementChild.setAttribute('style', 'width: 40px; height: 40px; stroke-width: 3px;');
+  // => stroke-width로 svg 이미지의 두꼐가 조절이 가능하다
+}
+// select menuChild[1]
+const bookmarkBtn = menuChild[0];
+const homeBtn = menuChild[1];
+const profileBtn = menuChild[2];
+console.log(homeBtn);
+homeBtn.style.background = colorObj.colorDp;
+homeBtn.style.borderRadius = '50%';
+
+const menuChildArr = Array.from(menuChild);
+menuChildArr.map((elem, index) => {
+  elem.addEventListener('click', () => {
+    index === 0 ? pageLoad('6-0_bookmark.html') :
+    index === 1 ? pageLoad('4-0_main.html') :
+    index === 2 ? pageLoad('9-0_profile.html') : '';
+  })
+})
