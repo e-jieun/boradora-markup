@@ -55,6 +55,9 @@ setDisplay(profilePic, 'flex', 'flex-end', center);
 appendChild(profilePic, 'img', 'profile-pic');
 const pic = profilePic.firstElementChild;
 setSize(pic, '100px', '100px');
+pic.style.backgroundImage = `url(https://cdn.pixabay.com/photo/2022/07/06/12/58/woman-7305088__480.jpg)`;
+pic.style.backgroundSize = 'cover';
+
 pic.classList.toggle('circle');
 setBgColor(pic, colorObj.colorGr);
 
@@ -145,12 +148,14 @@ setPosition(queueVcrCon, 'relative', `-${hun/2}px`);
 
 // *queueVcrCon.children
 const queueVcrImg = Array.from(queueVcrCon.children);
-queueVcrImg.map(elem => {
+let bgImg = ['https://picsum.photos/200/300?random=1', 'https://picsum.photos/200/300?random=2', 'https://picsum.photos/200/300?random=3'];
+queueVcrImg.map((elem, index) => {
   setSize(elem, '180px', '110px');
   setBgColor(elem, colorObj.colorGr);
   setDisplay(elem, 'flex', 'flex-end', center);
   elem.style.borderRadius = '25px';
   // *다시 재생 버튼
+  elem.style.backgroundImage = `url(${bgImg[index]})`;
   elem.firstElementChild.classList.toggle('tag-size');
   // elem.firstElementChild.style.margin = 0;
   setSize(elem.firstElementChild, '6rem', '2rem');

@@ -52,6 +52,8 @@ setDisplay(profilePic, 'flex', 'flex-end', center);
 // *profilePic > img
 appendChild(profilePic, 'img', 'profile-pic');
 const pic = profilePic.firstElementChild;
+pic.style.backgroundImage = `url(https://cdn.pixabay.com/photo/2022/07/06/12/58/woman-7305088__480.jpg)`;
+pic.style.backgroundSize = 'cover';
 setSize(pic, '100px', '100px');
 pic.classList.toggle('circle');
 setBgColor(pic, colorObj.colorGr);
