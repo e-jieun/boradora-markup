@@ -15,6 +15,7 @@ import borderBk from "./module/css-function.js";
 import appendChild from "./module/appendchild.js";
 import colorObj from "./module/color.js";
 import tagChange from "./module/tagcolor.js";
+import pageLoad from "./module/pageload.js";
 
 const root = document.getElementById('root');
 console.log(root);
@@ -53,7 +54,10 @@ setDisplay(profilePic, 'flex', 'flex-end', center);
 // *profilePic > img
 appendChild(profilePic, 'img', 'profile-pic');
 const pic = profilePic.firstElementChild;
-setSize(pic, '100px','100px');
+setSize(pic, '100px', '100px');
+pic.style.backgroundImage = `url(https://cdn.pixabay.com/photo/2022/07/06/12/58/woman-7305088__480.jpg)`;
+pic.style.backgroundSize = 'cover';
+
 pic.classList.toggle('circle');
 setBgColor(pic, colorObj.colorGr);
 
@@ -95,6 +99,10 @@ btn.textContent = '프로필 수정';
 tagChange(btn, colorObj.colorDp, colorObj.colorYl);
 console.dir(btn);
 
+btn.addEventListener('click', () => {
+  pageLoad('9-1_profile edit.html');
+});
+
 // *queueCon
 const queueCon = profileCon.nextElementSibling;
 console.log(queueCon);
@@ -127,8 +135,8 @@ boldTxt.style.fontWeight = '600';
 const queueVcrCon = queueCon.lastElementChild;
 console.log(queueVcrCon);
 let queueVcrStr = '';
-for(let i = 0; i < 3; i++){
-  let str = `<div><button>다시 재생</button></div>`; 
+for (let i = 0; i < 3; i++) {
+  let str = `<div><button>다시 재생</button></div>`;
   queueVcrStr += str;
 }
 console.log(queueVcrStr);
@@ -140,12 +148,14 @@ setPosition(queueVcrCon, 'relative', `-${hun/2}px`);
 
 // *queueVcrCon.children
 const queueVcrImg = Array.from(queueVcrCon.children);
-queueVcrImg.map(elem => {
+let bgImg = ['https://picsum.photos/200/300?random=1', 'https://picsum.photos/200/300?random=2', 'https://picsum.photos/200/300?random=3'];
+queueVcrImg.map((elem, index) => {
   setSize(elem, '180px', '110px');
   setBgColor(elem, colorObj.colorGr);
   setDisplay(elem, 'flex', 'flex-end', center);
   elem.style.borderRadius = '25px';
   // *다시 재생 버튼
+  elem.style.backgroundImage = `url(${bgImg[index]})`;
   elem.firstElementChild.classList.toggle('tag-size');
   // elem.firstElementChild.style.margin = 0;
   setSize(elem.firstElementChild, '6rem', '2rem');
@@ -153,3 +163,39 @@ queueVcrImg.map(elem => {
 })
 
 // todo: root 마지막 자식요소는 하단의 fixed 메뉴로 사용할 것
+appendChild(root, 'div', 'menu-con');
+console.clear();
+const menuCon = document.getElementById('menu-con');
+menuCon.innerHTML = makeElem('button', 3);
+console.log(menuCon);
+// menuCon style
+menuCon.setAttribute('style', `width: 100vw; position: fixed; bottom: 3vh; display: flex; align-items: center; justify-content: center; column-gap: 1vh;`);
+// select menuCon.children
+const menuChild = menuCon.children;
+console.log(menuChild);
+// menuChild style
+const imgArr = ['./SVG/bookmark.svg', './SVG/home.svg', './SVG/profile.svg'];
+for (let i = 0; i < menuChild.length; i++) {
+  menuChild[i].setAttribute('style', `width: 80px; height: 80px; background: none; border: 0px; justify-content: center;`);
+  console.log(menuChild[i].children);
+  menuChild[i].innerHTML = makeElem('img', 1);
+  menuChild[i].firstElementChild.src = imgArr[i];
+  menuChild[i].firstElementChild.setAttribute('style', 'width: 40px; height: 40px; stroke-width: 3px;');
+  // => stroke-width로 svg 이미지의 두꼐가 조절이 가능하다
+}
+// select menuChild[1]
+const bookmarkBtn = menuChild[0];
+const homeBtn = menuChild[1];
+const profileBtn = menuChild[2];
+console.log(homeBtn);
+homeBtn.style.background = colorObj.colorDp;
+homeBtn.style.borderRadius = '50%';
+
+const menuChildArr = Array.from(menuChild);
+menuChildArr.map((elem, index) => {
+  elem.addEventListener('click', () => {
+    index === 0 ? pageLoad('6-0_bookmark.html') :
+    index === 1 ? pageLoad('4-0_main.html') :
+    index === 2 ? pageLoad('9-0_profile.html') : '';
+  })
+})

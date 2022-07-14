@@ -1,9 +1,16 @@
 import colorObj from "./module/color.js";
 import {
+  setSize
+} from "./module/css-function.js";
+import {
   dramaExplain,
   dramaTitle
 } from "./module/dramainform.js";
+import stringNum from "./module/stringnum.js";
+import mathAbs from "./module/mathabs.js";
+import pageLoad from "./module/pageload.js";
 
+// *모바일, 태블릿
 // *
 document.body.setAttribute('style', `margin: 0; padding: 0; box-sizing: border-box; overflow: hidden;`);
 // *select root
@@ -36,20 +43,20 @@ console.log(headerSearch.children);
 const searchBar = document.createElement('div');
 headerSearch.firstElementChild.after(searchBar);
 const searchBarText = `
-    <div>
-      <input type="text"></input>
-      <ul>추천하는 키워드</ul>
-      <ul>
-        <li data-keyword="1">lorem ipsum</li>
-        <li data-keyword="2">lorem ipsum</li>
-        <li data-keyword="3">lorem ipsum</li>
-        <li data-keyword="4">lorem ipsum</li>
-        <li data-keyword="5">lorem ipsum</li>
-        <li data-keyword="6">lorem ipsum</li>
-        <li data-keyword="7">lorem ipsum</li>
-      </ul>
-    </div>
-    `
+      <div>
+        <input type="text"></input>
+        <ul>추천하는 키워드</ul>
+        <ul>
+          <li data-keyword="1">lorem ipsum</li>
+          <li data-keyword="2">lorem ipsum</li>
+          <li data-keyword="3">lorem ipsum</li>
+          <li data-keyword="4">lorem ipsum</li>
+          <li data-keyword="5">lorem ipsum</li>
+          <li data-keyword="6">lorem ipsum</li>
+          <li data-keyword="7">lorem ipsum</li>
+        </ul>
+      </div>
+      `
 searchBar.innerHTML = searchBarText;
 searchBar.setAttribute('style', `width: 100vw; height: 90vmax; position: absolute; top: 10vh; right: 0; background: ${colorObj.colorYl}; z-index: 2;`);
 
@@ -92,11 +99,14 @@ searchBar.style.display = 'none';
 let isClick = true;
 headerSearch.firstElementChild.addEventListener('click', (event) => {
   console.log(event.target);
-  console.log('서치할 수 있는 창을 만들자');
+  // console.log('서치할 수 있는 창을 만들자');
   if (isClick === true) {
     searchBar.style.display = 'block';
     searchBar.style.transition = '1s';
     isClick = false;
+    headerSearch.firstElementChild.addEventListener('click', () => {
+      pageLoad('5-0_search.html');
+    })
   } else {
     // ?문제는 클릭했을 때 사라지기는 하는데 문제는 인풋을 입력하기 위해 클릭해도 사라진다는 것이다 => 해결: 아이콘 자체에 클릭 이벤트를 달아서 그 부분 이외엔 이벤트가 일어나지 않도록 해줌
     searchBar.style.display = 'none';
@@ -155,17 +165,30 @@ for (let i = 0; i < menuChild.length; i++) {
   // => stroke-width로 svg 이미지의 두꼐가 조절이 가능하다
 }
 // select menuChild[1]
-let homeBtn = menuChild[1];
-// console.log(homeBtn);
+const bookmarkBtn = menuChild[0];
+const homeBtn = menuChild[1];
+const profileBtn = menuChild[2];
+console.log(homeBtn);
 homeBtn.style.background = '#c8b5c8ff';
 homeBtn.style.borderRadius = '50%';
+
+const menuChildArr = Array.from(menuChild);
+menuChildArr.map((elem, index) => {
+  elem.addEventListener('click', () => {
+    index === 0 ? pageLoad('6-0_bookmark.html') :
+    index === 1 ? pageLoad('4-0_main.html') :
+    index === 2 ? pageLoad('9-0_profile.html') : '';
+  })
+})
+
+
 // --------------------------------------
 // slide 효과를 넣는다
 // 배경에 슬라이드 넣기
 // 1. 슬라이드 컨테이너를 배경에 위치시킨다 0
 // 2. 슬라이드 아이템을 배열이니까 컨테이너의 0 자식요소로 불러온다
 // 3. 이미지로 들어갈 배열을 선언(우선 색깔을 넣어주자) 0
-// 4. 한 섹션마다 이미지를 넣어준다 0
+// 4. 한 섹션마다 이미지를 넣어준다 0 
 // 5. 클릭이벤트를 달아준다
 // 6. 클릭하면 위치가 이동하는 부분을 주면 좋을 것
 const slideCon = document.getElementById('slide-con');
@@ -177,33 +200,44 @@ const slideChild = slideCon.children;
 // console.log(slideChild);
 // 우선 구분해줄 배경색 배열
 // todo: 지금은 배경색을 넣어줬는데 이미지 소스로 변경해주기
-let colorArr = ['https://picsum.photos/1000/1000?random=1', 'https://picsum.photos/1000/1000?random=2', 'https://picsum.photos/1000/1000?random=3', 'https://picsum.photos/1000/1000?random=4', 'https://picsum.photos/1000/1000?random=5'];
+let imgArr = ['https://mblogthumb-phinf.pstatic.net/MjAyMDAzMTNfMyAg/MDAxNTg0MDY0MTg3NTQw.8v4rZMyBrFahxP2ciDtPqpa1Gq4ky6PyuoNf_xDmgSUg.chnGtxAMkC0xA-mthOaWjuv_E0qotXeqkbiEs5K6EsEg.JPEG.phy3094/%EC%8B%AC%EC%95%BC%EC%8B%9D%EB%8B%B9_%EB%8F%84%EC%BF%84%EC%8A%A4%ED%86%A0%EB%A6%AC.jpg?type=w800',
+'https://pic.filecast.co.kr/75/d3/75d3afb7f4ba28734c7e7f9b6f7c8c2c.jpg',
+'https://www.themoviedb.org/t/p/w500/nF9L433hhPfv0GlyXW11c9n4DjF.jpg',
+'https://post-phinf.pstatic.net/MjAxODA1MjVfNDgg/MDAxNTI3MjE4MjU4NzUw.QHtpIti29GR5LsgKlmmwZiQGsFCLesn_VFaqDr4eUq0g.79I8oBdRsjhUUZR_4vJiMSryV17qzyvz7r2dk7iZFHcg.JPEG/01.jpg?type=w1200',
+'https://blog.kakaocdn.net/dn/k0UFt/btqNuQW4sp0/ColyLgK3TQIdghon6jbwk0/img.jpg'];
 // *slideChild style
 for (let i = 0; i < slideChild.length; i++) {
   slideChild[i].setAttribute('style', `width: 100vw; height: 100vh; min-width: 100vw;`);
-  slideChild[i].innerHTML = `<img src=${colorArr[i]}>`;
+  slideChild[i].innerHTML = `<img src=${imgArr[i]}>`;
 
   const slideChildImg = slideChild[i].firstElementChild;
   console.log(slideChildImg);
   slideChildImg.setAttribute('style', `width: 100vw; height: 100vh; object-fit: cover; filter: brightness(0.5);`)
+  slideChildImg.style.objectFit = 'cover';
   // slideChildImg.style.objectFit = 'cover';
 }
 // console.log(buttonCon.children);
+console.clear();
 // *select buttonCon.children[2]
-const leftBtn = buttonCon.lastElementChild;
-const rightBtn = buttonCon.firstElementChild;
-const playBtn = rightBtn.nextElementSibling;
-console.log(leftBtn);
-console.log(rightBtn);
+const rightBtn = buttonCon.lastElementChild;
+const leftBtn = buttonCon.firstElementChild;
+const playBtn = leftBtn.nextElementSibling;
+// console.log('left'+leftBtn);
+// console.log('right'+rightBtn);
 console.log(playBtn);
 
+playBtn.addEventListener('click', () => {
+  // console.log('hi');
+  pageLoad('7-0_playscreen.html');
+})
+
 // *buttonCon.children
-const buttonItem = buttonCon.children;
+const buttonItem = Array.from(buttonCon.children);
 // *buttonCon.children style
-for (let i = 0; i < buttonItem.length; i++) {
-  buttonItem[i].style.background = 'none';
-  buttonItem[i].style.border = 'none';
-}
+buttonItem.map(elem => {
+  elem.setAttribute('style', `background: none; border: none;`);
+  setSize(elem.firstElementChild, '20px', '20px');
+})
 
 // *playBtn style
 console.log(playBtn);
@@ -211,7 +245,7 @@ playBtn.setAttribute('style', `width: 50px; height: 50px; background: ${colorObj
 // *playBtn.children[0].style.
 
 // *leftBtn style
-leftBtn.style.transform = 'rotate(180deg)';
+rightBtn.style.transform = 'rotate(180deg)';
 let widthValue = window.innerWidth;
 let clickValue = 0;
 // 이 부분은 왼쪽 버튼
@@ -220,51 +254,73 @@ let clickValue = 0;
 title.textContent = dramaTitle[clickValue];
 drama.textContent = dramaExplain[clickValue];
 
-leftBtn.addEventListener('click', () => {
-  // console.log('왼쪽으로 이전 이미지가 넘어가는 인터랙션을 주시오');
-  console.dir(slideChild[0]); //offsetWidth: 531;
-  // 넓이 기준점을 0-클릭수만큼 곱해주고
-  // widthValue = slideChild[0].offsetWidth * index;
-  title.textContent = dramaTitle[clickValue];
-  drama.textContent = dramaExplain[clickValue];
-  widthValue = window.innerWidth * clickValue;
-  clickValue++;
-  // 우선 슬라이드 효과는 줄 수 있다
-  for (let i = 0; i < slideChild.length; i++) {
-    // console.log(widthValue);
-    slideChild[i].style.position = 'relative';
-    slideChild[i].style.left = `-${widthValue}px`;
-    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
-    // slideChild[i].style.transition = '2s';
-    console.log('현재 left 값 위치: ' + slideChild[i].style.left);
-  }
-  console.log('현재 widthValue: ' + widthValue);
+// todo: 문제는 텍스트 => 이 부분은 window.innerwidth로 지금의 left값을 나눠주고 양수로 바꿔주면 인덱스와 같아져서 그 인덱스를 적용시키면 되지 않을까? => 해결 완료
 
-  let rightClickValue = 1;
-  // todo: 이곳에서 left 값이 얼마인지 알아야 한다
-  rightBtn.addEventListener('click', () => {
-    console.log('rightbtn');
-    rightClickValue++;
-    console.log('현재 오른쪽 버튼 값이 계산되기 전 widthValue: ' + widthValue);
-    for (let i = 0; i < slideChild.length; i++) {
-      // todo: 1. 다시 돌아가는 버튼은 left 버튼의 현재 left 값에서 이동할 수 있어야 한다 
-      // ?한번 클릭했을 때만 되는 문제 해결하기 => 변수를 선언해서 해결했다
-      // ?그런데 left 값이 실행되고 나서의 값이 
-      slideChild[i].style.left = -widthValue + (window.innerWidth * rightClickValue) + 'px';
-      // todo: 2. 그러면 오른쪽 버튼은 left값에 +브라우저 내부값 하나만 더 해주면 되는 것 아닐까? 클릭할 때마다
-      // todo: 3. 그러면 left 값은 -windthValue px에 +window.innerHeight을 더해준 값이 된다
-      // title.textContent = dramaTitle[i];
-      // drama.textContent = dramaExplain[i];
-      console.log('오른쪽 클릭 left값 위치: ' + slideChild[i].style.left);
+
+slideCon.style.left = 0;
+const buttonCallback = {
+  rightSlide: function () {
+    let isStatus = slideCon.style.left;
+    console.log(isStatus);
+    isStatus = stringNum(isStatus);
+
+    let moveToRight = -isStatus - window.innerWidth;
+    console.log(moveToRight);
+    console.log(window.innerWidth);
+    slideCon.style.left = moveToRight + 'px';
+    console.log(slideCon.style.width);
+
+    // *콘텐츠 끝에서 버튼을 멈춰주는 부분
+    if (moveToRight <= -window.innerWidth * imgArr.length) {
+      moveToRight = -window.innerWidth * (imgArr.length - 1);
+      slideCon.style.left = moveToRight + 'px';
     }
-  });
-});
+    // *양수로 만들어주는 함수를 변수로 담은 부분
+    let strIndex = mathAbs(moveToRight / window.innerWidth);
+
+    console.log('현재 widthValue: ' + widthValue);
+    // *텍스트 넣어주는 부분
+    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+    title.innerHTML = dramaTitle[strIndex];
+    drama.innerHTML = dramaExplain[strIndex];
+  },
+  leftSlide: function () {
+    // *slideCon의 left의 현재값
+    let isStatus = slideCon.style.left;
+
+    // *문자열인 단위값을 .substring()으로 문자열 뒤에서 2자리를 떼고 문자열을 반환해주는 함수 사용
+    isStatus = stringNum(isStatus);
+    console.log(isStatus);
+
+    // *브라우저의 보이는 창 넓이값만큼 현재 값에 더해준 부분
+    let moveToLeft = -isStatus + window.innerWidth;
+    console.log(moveToLeft);
+    // *왼쪽 버튼을 클릭하면 앞의 슬라이드로 이동해준다
+    slideCon.style.left = moveToLeft + 'px';
+    console.log(slideCon.style.left);
+    // *left 값이 0보다 크면 0에서 멈춰주도록 한 부분
+    // *인덱스 0의 이미지 슬라이드일 경우 더 이상 앞으로 움직이지 않는다
+    if (moveToLeft >= 0) {
+      moveToLeft = 0;
+      slideCon.style.left = `${moveToLeft}px`;
+    }
+
+    // ?무조건 양수로 바꿔주는 메서드
+    console.log(moveToLeft / window.innerWidth);
+    // *양수로 만들어주는 함수를 변수로 담은 부분
+    // ?return으로 해주지 않아서 return받지 못한 것이었음
+    let strIndex = mathAbs(moveToLeft / window.innerWidth);
 
 
-// todo: 다시 돌아가는 버튼(버튼컨의 첫 칠드런)에 이벤트를 누르면 다시 앞의 컨텐츠로 돌아가는 효과를 줘야 한다 
-// rightBtn.addEventListener('click', () => {
-//   console.log('rightbtn');
-//   // todo: 1. 다시 돌아가는 버튼은 left 버튼의 현재 left 값에서 이동할 수 있어야 한다 
-//   // todo: 2. 그러면 오른쪽 버튼은 left값에 +브라우저 내부값 하나만 더 해주면 되는 것 아닐까? 클릭할 때마다
-//   // todo: 3. 그러면 left 값은 -windthValue px에 +window.innerHeight을 더해준 값이 된다
-// });
+    // *텍스트 넣어주는 부분
+    // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
+    // !객체로 따로 분리돼있음
+    title.innerHTML = dramaTitle[strIndex];
+    drama.innerHTML = dramaExplain[strIndex];
+  }
+}
+
+// *버튼 이벤트 걸어준 부분 => 콜백함수는 위에 작성되어있음
+rightBtn.addEventListener('click', buttonCallback.rightSlide);
+leftBtn.addEventListener('click', buttonCallback.leftSlide);
+console.clear();

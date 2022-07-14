@@ -1,4 +1,5 @@
 import colorObj from "./module/color.js";
+import pageLoad from "./module/pageload.js";
 
 // *
 document.body.setAttribute('style', `margin: 0; padding: 0;`);
@@ -61,6 +62,10 @@ function addItemFunction() {
   // todo: 아이콘 위치 조정
   const playBtnCon = addItem.lastElementChild;
   playBtnCon.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background-color: ${colorObj.colorDp}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
+
+  playBtnCon.addEventListener('click', () => {
+    pageLoad('7-0_playscreen.html');
+  })
   // 재생버튼 세모
   const chevronItem = addItem.lastElementChild.firstElementChild;
   chevronItem.src = './SVG/chevron.svg';
@@ -94,6 +99,10 @@ for (let i = 0; i < itemCon.children.length; i++) {
   const currentChevronItem = itemChild.lastElementChild.firstElementChild;
   currentChevronItem.src = './SVG/chevron.svg';
   currentChevronItem.style.transform = 'rotate(180deg)';
+
+  currentChevronItem.addEventListener('click', () => {
+    pageLoad('7-0_playscreen.html');
+  })
 }
 // select #menu-con
 const menuCon = document.getElementById('menu-con');
@@ -131,3 +140,4 @@ const searchItemArr = Array.from(itemCon.children);
 searchItemArr.forEach((elem, index) => {
   elem.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://picsum.photos/1000/1000?random=1")`;
 });
+console.clear();

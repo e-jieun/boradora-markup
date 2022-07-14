@@ -3,7 +3,11 @@ import borderBk from "./module/borderbk.js";
 <<<<<<< HEAD
 =======
 import moveToPage from "./module/locationhref.js";
+<<<<<<< HEAD
 >>>>>>> issue-3
+=======
+import pageLoad from "./module/pageload.js";
+>>>>>>> issue-4
 
 document.body.setAttribute('style', 'margin: 0; padding: 0;');
 console.log(document.body);
@@ -67,7 +71,7 @@ console.log(signUp);
 
 // *회원가입 페이지로 연결되도록 해주는 부분
 signUp.addEventListener('click', function(){
-  // let signUpLink = 
+  pageLoad('2-2_signup.html');
 })
 
 
@@ -75,5 +79,10 @@ signUp.addEventListener('click', function(){
 const logoImg = logoCon.children[0];
 console.log(logoImg);
 // *logoDiv
+<<<<<<< HEAD
 >>>>>>> issue-3
 logoImg.setAttribute('style', 'width: 200px; height: 100px;');
+=======
+logoImg.setAttribute('style', 'width: 200px; height: 100px;');
+console.clear();
+>>>>>>> issue-4

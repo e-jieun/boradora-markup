@@ -181,3 +181,4 @@ console.log(welcome);
 welcome.innerHTML = makeElem('p', 1, '이제 저희 서비스를 소개해드릴게요');
 setDisplay(welcome, 'flex');
 welcome.style.fontSize = '0.8rem';
+console.clear();

@@ -66,3 +66,4 @@ const logoImg = logoCon.firstElementChild;
 console.log(logoImg);
 // *logoDiv
 logoImg.setAttribute('style', 'width: 200px; height: 100px;');
+console.clear();

@@ -1,5 +1,9 @@
 import colorObj from "./module/color.js";
-import { setSize, setDisplay } from "./module/css-function.js";
+import {
+  setSize,
+  setDisplay
+} from "./module/css-function.js";
+import pageLoad from "./module/pageload.js";
 
 // *
 document.body.setAttribute('style', `margin: 0; padding: 0;`);
@@ -63,6 +67,11 @@ function addItemFunction() {
   // todo: 아이콘 위치 조정
   const playBtnCon = addItem.lastElementChild;
   playBtnCon.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background-color: ${colorObj.colorDp}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
+
+  playBtnCon.addEventListener('click', () => {
+    pageLoad('7-0_playscreen.html');
+  })
+
   // 재생버튼 세모
   // todo: 세모 지우고 아이콘으로 이미지 태그로 연결하기
   // todo: div => img 태그로 대체해줄 것
@@ -70,7 +79,7 @@ function addItemFunction() {
   chevronItem.src = './SVG/chevron.svg';
   chevronItem.style.transform = 'rotate(180deg)';
   // todo: 배경 바꿔줘야 한다
-  chevronItem.setAttribute('style',`transform: rotate(180deg);`)
+  chevronItem.setAttribute('style', `transform: rotate(180deg);`)
   console.log(chevronItem);
   itemCon.appendChild(addItem);
   // 휠 값이 hun/2이 넘으면 휠 이벤트에 실행되는 callback function를 지워줄 부분
@@ -94,10 +103,13 @@ for (let i = 0; i < itemCon.children.length; i++) {
   // const 
   itemChild.lastElementChild.setAttribute('style', `width: ${hun/20}vmax; height: ${hun/20}vmax; position: absolute; right: ${hun/10}vw; background-color: ${colorObj.colorDp}; border-radius: ${hun/2}%; display: flex; align-items: center; justify-content: center;`);
   // 재생버튼 세모
-  // todo: 세모 => 아이콘으로 변경해주기
   const currentChevronItem = itemChild.lastElementChild.firstElementChild;
   currentChevronItem.src = './SVG/chevron.svg';
   currentChevronItem.style.transform = 'rotate(180deg)';
+
+  currentChevronItem.addEventListener('click', () => {
+    pageLoad('7-0_playscreen.html');
+  })
 }
 // select #menu-con
 const menuCon = document.getElementById('menu-con');
@@ -114,11 +126,21 @@ for (let i = 0; i < menuChild.length; i++) {
   menuChild[i].children[0].setAttribute('style', 'width: 40px; height: 40px; stroke-width: 3px;');
   // => stroke-width로 svg 이미지의 두꼐가 조절이 가능하다
 }
-// select menuChild[1]
-let homeBtn = menuChild[1];
-// console.log(homeBtn);
-homeBtn.style.background = `${colorObj.colorBp}`;
+const bookmarkBtn = menuChild[0];
+const homeBtn = menuChild[1];
+const profileBtn = menuChild[2];
+console.log(homeBtn);
+homeBtn.style.background = '#c8b5c8ff';
 homeBtn.style.borderRadius = '50%';
+
+const menuChildArr = Array.from(menuCon.children);
+menuChildArr.forEach((elem, index) => {
+  elem.addEventListener('click', (event) => {
+    index === 0 ? pageLoad('6-0_bookmark.html') : '';
+    index === 1 ? pageLoad('4-0_main.html') : '';
+    index === 2 ? pageLoad('9-0_profile.html') : '';
+  })
+})
 
 // todo: 배경을 각각 다르게 적용해보기
 // ?이 부분을 각각의 요소마다 다르게 적용해야함 어떻게 적용하면 될까???
@@ -135,3 +157,6 @@ const searchItemArr = Array.from(itemCon.children);
 searchItemArr.forEach((elem, index) => {
   elem.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://picsum.photos/1000/1000?random=1")`;
 });
+
+// console.log(itemCon.querySelectorAll('img'));
+console.clear();
