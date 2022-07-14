@@ -1,0 +1,180 @@
+// common
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//variable
+$color-bk: black;
+$color-c4: #c4c4c4;
+$color-dp: #8068AD;
+$color-pp: #C8B5C8;
+$color-yel: #EDEBB2;
+$color-cr: #FFFEF9;
+$border-bk: 1px solid black;
+$border-red: 1px solid red;
+$per100: 100%;
+
+//class-set
+@mixin flex-align-justify($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin border($px, $color) {
+  border: $px solid $color;
+}
+
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+  @include flex-align-justify(center, flex-start);
+  flex-direction: column;
+}
+
+//style
+#root {
+  @include width-height(100vw, 200vh);
+
+  #con {
+    @include width-height($per100, $per100);
+
+    >header {
+      @include width-height($per100, 10%);
+      @include flex-align-justify(center, center);
+      flex-direction: column;
+      color: $color-dp;
+
+      // @include border(1px, salmon);
+
+      >div {
+        @include width-height($per100, 30%);
+        // @include border(1px, salmon);
+        row-gap: 3vh;
+
+        >div {
+          // @include border(1px, red);
+        }
+
+        >div:nth-child(1) {
+          >div {
+            >span {
+              font-weight: 700;
+            }
+          }
+        }
+
+        >div:nth-child(2) {
+          position: absolute;
+          left: 15vw;
+          top: 8vh;
+        }
+
+        >div:nth-child(3) {
+          @include width-height($per100, 4rem);
+          >div{
+            @include width-height(30%, 3rem);
+            background-color: $color-pp;
+            @include flex-align-justify(center, center);
+            border-radius: 30px;
+            div{
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+    }
+    // !구분 좀 잘하자!
+    >main {
+      @include width-height($per100, 100%);
+      position: relative;
+      top: 5vh;
+      >div:nth-child(1){
+        @include width-height($per100, 5vh);
+        @include flex-align-justify(center, flex-end);
+        font-size: 0.8rem;
+        color: $color-dp;
+        font-weight: 700;
+        position: relative;
+        top: -2vh;
+      }
+      >ul{
+        @include width-height($per100, 90%);
+        // @include border(1px, black);
+        @include flex-align-justify(center, space-around);
+        list-style-type: none;
+        row-gap: 3vh;
+        >li{
+          @include width-height(50vw, 30vw);
+          // @include border(1px, black);
+          background-color: $color-c4;
+          border-radius: 30px;
+          @include flex-align-justify(flex-end, flex-end);
+          >div{
+            @include width-height(10vw, 10vw);
+            max-width: 50px;
+            max-height: 50px;
+            background-color: $color-dp;
+            border-radius: $per100;
+            position: relative;
+            right: 3vw;
+            bottom: 3vw;
+            @include flex-align-justify(center, center);
+            i{
+              color: $color-yel;
+            }
+          }
+        }
+      }
+      >div:nth-child(3){
+        @include width-height(30vw, 20vh);
+
+      }
+
+    }
+
+    nav{
+      @include width-height(100vw, 10vh);
+      background-color: $color-cr;
+      ;
+      position: fixed;
+      bottom: 0;
+      @include flex-align-justify(center, center);
+
+      ul{
+        @include width-height($per100, $per100);
+
+        // !height 값을 지정해줘야 함
+        // height: $per100;
+        list-style-type: none;
+        @include flex-align-justify(center, space-around);
+        flex-direction: row;
+        li{
+          // !height 값을 지정해줘야 함
+          @include width-height($per100, $per100);
+          height: $per100;
+          flex-grow: 1;
+          background-color: $color-yel;
+          // @include border(1px, #fff);
+          @include flex-align-justify(center, center);
+          &:hover{
+            background-color: $color-pp;
+            transition: 1s;
+          } 
+          i{
+            color: $color-dp;
+            // !글자처럼 아이콘도 font-size로 지정해줘야 함
+            font-size: 2em;
+            background-color: $color-yel;
+            &:hover{
+              background-color: $color-pp;
+              transition: 1s;
+            } 
+          }
+        }
+      }
+    }
+  }
+}

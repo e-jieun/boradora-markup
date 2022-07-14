@@ -1,9 +1,6 @@
 import colorObj from "./module/color.js"
 import borderBk from "./module/borderbk.js"
-<<<<<<< HEAD
-=======
 import moveToPage from "./module/locationhref.js";
->>>>>>> issue-3
 
 document.body.setAttribute('style', 'margin: 0; padding: 0;');
 console.log(document.body);
@@ -36,8 +33,6 @@ for (let i = 0; i < signinItem.length - 2; i++) {
 }
 
 // *input#next
-<<<<<<< HEAD
-=======
 const nextBtn = signinCon.lastElementChild;
 console.log(nextBtn);
 
@@ -48,7 +43,6 @@ nextBtn.addEventListener('click', function(){
   moveToPage(tagselectLink);
 })
 
->>>>>>> issue-3
 signinItem[signinItem.length - 1].setAttribute('style', 'width: 70px;height: 50px; border-radius: 50px; border: 0px; ');
 signinItem[signinItem.length - 1].style.background = colorObj.colorDp;
 signinItem[signinItem.length - 1].style.color = colorObj.colorYl;

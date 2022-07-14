@@ -117,14 +117,7 @@ footerBtn.addEventListener('mouseover', function(){
 const before = document.getElementById('before');
 console.log(before);
 // *button#before style
-<<<<<<< HEAD
 before.setAttribute('style', `background: none; border: none;`);
-<<<<<<< HEAD
-=======
-before.setAttribute('style', `background: none; border: none;`);
-before.classList.toggle('before-position');
->>>>>>> issue-3
-=======
 before.classList.toggle('before-position');
 
 before.addEventListener('click', ()=>{
@@ -137,4 +130,3 @@ nextBtn.addEventListener('click', ()=>{
   pageLoad('4-0_main.html');
 })
 console.clear();
->>>>>>> issue-4
