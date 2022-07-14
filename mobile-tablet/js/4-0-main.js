@@ -200,7 +200,11 @@ const slideChild = slideCon.children;
 // console.log(slideChild);
 // 우선 구분해줄 배경색 배열
 // todo: 지금은 배경색을 넣어줬는데 이미지 소스로 변경해주기
-let imgArr = ['https://picsum.photos/1000/1000?random=1', 'https://picsum.photos/1000/1000?random=2', 'https://picsum.photos/1000/1000?random=3', 'https://picsum.photos/1000/1000?random=4', 'https://picsum.photos/1000/1000?random=5'];
+let imgArr = ['https://mblogthumb-phinf.pstatic.net/MjAyMDAzMTNfMyAg/MDAxNTg0MDY0MTg3NTQw.8v4rZMyBrFahxP2ciDtPqpa1Gq4ky6PyuoNf_xDmgSUg.chnGtxAMkC0xA-mthOaWjuv_E0qotXeqkbiEs5K6EsEg.JPEG.phy3094/%EC%8B%AC%EC%95%BC%EC%8B%9D%EB%8B%B9_%EB%8F%84%EC%BF%84%EC%8A%A4%ED%86%A0%EB%A6%AC.jpg?type=w800',
+'https://pic.filecast.co.kr/75/d3/75d3afb7f4ba28734c7e7f9b6f7c8c2c.jpg',
+'https://www.themoviedb.org/t/p/w500/nF9L433hhPfv0GlyXW11c9n4DjF.jpg',
+'https://post-phinf.pstatic.net/MjAxODA1MjVfNDgg/MDAxNTI3MjE4MjU4NzUw.QHtpIti29GR5LsgKlmmwZiQGsFCLesn_VFaqDr4eUq0g.79I8oBdRsjhUUZR_4vJiMSryV17qzyvz7r2dk7iZFHcg.JPEG/01.jpg?type=w1200',
+'https://blog.kakaocdn.net/dn/k0UFt/btqNuQW4sp0/ColyLgK3TQIdghon6jbwk0/img.jpg'];
 // *slideChild style
 for (let i = 0; i < slideChild.length; i++) {
   slideChild[i].setAttribute('style', `width: 100vw; height: 100vh; min-width: 100vw;`);
@@ -209,6 +213,7 @@ for (let i = 0; i < slideChild.length; i++) {
   const slideChildImg = slideChild[i].firstElementChild;
   console.log(slideChildImg);
   slideChildImg.setAttribute('style', `width: 100vw; height: 100vh; object-fit: cover; filter: brightness(0.5);`)
+  slideChildImg.style.objectFit = 'cover';
   // slideChildImg.style.objectFit = 'cover';
 }
 // console.log(buttonCon.children);
