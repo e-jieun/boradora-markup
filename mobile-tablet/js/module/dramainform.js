@@ -4,9 +4,9 @@ export const dramaTitle = [
   '망각의 사치코',
   '고독한 미식가',
   '도망치는 건 부끄럽지만 때로는 도움이 된다'];
-export const dramaExplain = ['1-Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vero qui neque molestiae!',
-  '2-Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vero qui neque molestiae!',
-  '3-Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vero qui neque molestiae!',
-  '4-Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vero qui neque molestiae!',
-  '5-Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet vero qui neque molestiae!'
+export const dramaExplain = ['영업시간은 밤 12시부터 아침 7시까지! 사람들은 심야식당이라고 부르는 식당, 손님 각각의 사연과 추억의 음식과 함꼐하는 드라마',
+  '선술집 이름이 바가지라고? 집밥을 요리해주는 자매와 단골 손님들의 이야기, 이름과 어울리지 않는 따뜻한 선술집 들어오시겠어요?',
+  '결혼 당일 남자친구가 도망을 갔다, 잘 지내니...? 공허해진 마음을 따뜻한 음식으로 달래는 사치코의 트라우마 극복기',
+  '오늘도 열심히 일하고 잘 먹는 이노가시라 고로의 일상! 배가 고파졌다...',
+  '어렵게 얻는 취직처, 입주 가정부? 어쩌다 벌어진 동거로 시작되는 두 사람의 로맨스'
 ];

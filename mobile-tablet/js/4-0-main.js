@@ -281,8 +281,8 @@ const buttonCallback = {
     console.log('현재 widthValue: ' + widthValue);
     // *텍스트 넣어주는 부분
     // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
-    title.textContent = dramaTitle[strIndex];
-    drama.textContent = dramaExplain[strIndex];
+    title.innerHTML = dramaTitle[strIndex];
+    drama.innerHTML = dramaExplain[strIndex];
   },
   leftSlide: function () {
     // *slideCon의 left의 현재값
@@ -315,8 +315,8 @@ const buttonCallback = {
     // *텍스트 넣어주는 부분
     // todo: 이미지 바뀌는 부분에 따라서 텍스트 내보내주기
     // !객체로 따로 분리돼있음
-    title.textContent = dramaTitle[strIndex];
-    drama.textContent = dramaExplain[strIndex];
+    title.innerHTML = dramaTitle[strIndex];
+    drama.innerHTML = dramaExplain[strIndex];
   }
 }
 
